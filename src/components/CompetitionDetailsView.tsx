@@ -1001,7 +1001,7 @@ export const CompetitionDetailsView: React.FC<CompetitionDetailsViewProps> = ({
                     </div>
                     {!isCompletedOrSettled && ['PUBLISHED', 'OPEN'].includes(competition.status) && (
                       <button
-                        onClick={() => setShowEntryModal(true)}
+                        onClick={() => setOpenWorkspace(true)}
                         className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xs rounded-xl transition-colors whitespace-nowrap self-stretch sm:self-auto text-center"
                       >
                         Enter Competition
