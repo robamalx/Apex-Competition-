@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref_1789065262026_80a537f3",
+    "referrerPlayerId": "proc_a_referrer",
+    "referrerName": "Multi-Process Referrer",
+    "referredPlayerId": "proc_b_referee",
+    "referredName": "Multi-Process Referee",
+    "referredEmailMasked": "pr***@apex.et",
+    "referredPhoneMasked": "091150****002",
+    "referralCodeUsed": "APX-PROC-001",
+    "status": "REVERSED",
+    "createdAt": "2026-09-10T18:34:22.026Z",
+    "rewardPointsAwarded": 0,
+    "riskFlags": [],
+    "riskScore": 0,
+    "updatedAt": "2026-09-10T18:34:22.034Z",
+    "verifiedAt": "2026-09-10T18:34:22.028Z",
+    "depositConfirmedAt": "2026-09-10T18:34:22.029Z",
+    "qualifyingDepositTxId": "tx_dep_proc_b",
+    "qualifyingDepositAmountETB": 200,
+    "qualifyingCompetitionId": "comp_proc_100",
+    "qualifyingCompetitionTitle": "Multi-Instance Matchweek 100 ETB",
+    "qualifyingEntryId": "entry_proc_100",
+    "qualifyingEntryFeeETB": 100,
+    "qualifiedAt": "2026-09-10T18:34:22.032Z",
+    "rewardGrantedAt": "2026-09-10T18:34:22.032Z",
+    "rewardIdempotencyKey": "rew_ref_ref_1789065262026_80a537f3_entry_proc_100",
+    "reversedAt": "2026-09-10T18:34:22.034Z",
+    "reversedReason": "Match abandoned",
+    "reversedBy": "SYSTEM"
+  }
+]

@@ -1,0 +1,61 @@
+==========================================
+ STAGE J11 - VERIFICATION & REGRESSION 
+==========================================
+
+
+--- GROUP A ---
+[+] Running /api/admin/stage-j1/test-suite...
+    ERROR: read ECONNRESET
+[+] Running /api/admin/stage-j2/test-suite...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+
+--- GROUP B ---
+[+] Running /api/admin/stage-j3a/test-suite...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+[+] Running /api/admin/stage-j3b/test-suite...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+[+] Running /api/admin/stage-j3c/test-suite...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+[+] Running /api/admin/tests/stage-j3d...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+
+--- GROUP C ---
+[+] Running /api/admin/tests/stage-j4...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+[+] Running /api/admin/tests/stage-j6...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+
+--- GROUP D ---
+[+] Running /api/admin/tests/stage-j6-hotfix...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+[+] Running /api/admin/tests/stage-j6-hotfix-i...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+
+--- GROUP E ---
+[+] Running /api/admin/tests/stage-final-a...
+    ERROR: connect ECONNREFUSED 127.0.0.1:3000
+
+--- J10 DIRECT VERIFICATION SCRIPT ---
+    ERROR: Command failed: node j10-verify.cjs
+[FAIL] One selection per market per fixture per prediction
+[FAIL] Correct Score points is 6
+[FAIL] 1X2 points is 3
+/app/applet/j10-verify.cjs:65
+db.ledger.forEach(l => {
+          ^
+
+TypeError: Cannot read properties of undefined (reading 'forEach')
+    at Object.<anonymous> (/app/applet/j10-verify.cjs:65:11)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.23.2
+
+==========================================
+ TOTAL VERIFICATION: 0 / 0
+==========================================

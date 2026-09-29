@@ -1,0 +1,47 @@
+[
+  {
+    "id": "notif_1789065262035_39ef72",
+    "userId": "proc_a_referrer",
+    "type": "REFERRAL_REVERSED",
+    "title": "Referral Reward Reversed",
+    "message": "A 10-point referral reward was reversed because the qualifying competition was cancelled/refunded. (Match abandoned)",
+    "idempotencyKey": "notif_rev_ref_1789065262026_80a537f3",
+    "timestamp": "2026-09-10T18:34:22.035Z"
+  },
+  {
+    "id": "notif_1789065262033_4133d4",
+    "userId": "proc_a_referrer",
+    "type": "REFERRAL_REWARD_GRANTED",
+    "title": "You Earned 10 Referral Points!",
+    "message": "Congratulations! Multi-Process Referee played their first 100 ETB competition. You have received 10 Referral Points.",
+    "idempotencyKey": "notif_rew_ref_1789065262026_80a537f3",
+    "timestamp": "2026-09-10T18:34:22.033Z"
+  },
+  {
+    "id": "notif_1789065262030_2b64bd",
+    "userId": "proc_a_referrer",
+    "type": "REFERRAL_DEPOSITED",
+    "title": "Referred Player Deposited Funds",
+    "message": "Multi-Process Referee deposited 200 ETB. Final step: Play one 100 ETB match to earn 10 points.",
+    "idempotencyKey": "notif_dep_ref_1789065262026_80a537f3",
+    "timestamp": "2026-09-10T18:34:22.030Z"
+  },
+  {
+    "id": "notif_1789065262028_5fb896",
+    "userId": "proc_a_referrer",
+    "type": "REFERRAL_VERIFIED",
+    "title": "Referred Player Phone Verified",
+    "message": "Multi-Process Referee verified their phone. Next step: Deposit funds & enter 100 ETB match.",
+    "idempotencyKey": "notif_ver_ref_1789065262026_80a537f3",
+    "timestamp": "2026-09-10T18:34:22.028Z"
+  },
+  {
+    "id": "notif_1789065262027_0b8a6b",
+    "userId": "proc_a_referrer",
+    "type": "REFERRAL_REGISTERED",
+    "title": "New Player Registered with Your Referral Code",
+    "message": "Multi-Process Referee registered using your referral code. Complete verification, deposit, and one 100 ETB match to unlock 10 points.",
+    "idempotencyKey": "notif_reg_ref_1789065262026_80a537f3",
+    "timestamp": "2026-09-10T18:34:22.027Z"
+  }
+]

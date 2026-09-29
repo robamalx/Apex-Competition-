@@ -1,0 +1,16 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+*.map
+.env*
+!.env.example
+data/backups/
+data/*.bak
+data/*.corrupt
+data/*.tmp.*
+data/.*.tmp.*
+data/sessions*.json
+data/.sessions*

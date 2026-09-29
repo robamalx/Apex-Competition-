@@ -1,0 +1,8 @@
+{
+  "name": "Apex Football Competitions 2",
+  "description": "A fantasy and skill-based football competition platform with competition-first layout, real-time prediction slips, wallet management, leaderboards, and super admin control.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

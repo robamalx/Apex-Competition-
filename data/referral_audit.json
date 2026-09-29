@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ref_aud_1789065262035_f59386",
+    "timestamp": "2026-09-10T18:34:22.035Z",
+    "action": "REWARD_REVERSED",
+    "referrerPlayerId": "proc_a_referrer",
+    "referredPlayerId": "proc_b_referee",
+    "actor": "SYSTEM",
+    "actorRole": "SYSTEM",
+    "details": "Reversed 10 points for referrer Multi-Process Referrer. Reason: Match abandoned",
+    "success": true,
+    "metadata": {
+      "reversalTxId": "pt_rev_1789065262034_2300e4cb",
+      "pointsDeducted": 10
+    }
+  },
+  {
+    "id": "ref_aud_1789065262033_c6bcdd",
+    "timestamp": "2026-09-10T18:34:22.033Z",
+    "action": "POINTS_AWARDED",
+    "referrerPlayerId": "proc_a_referrer",
+    "referredPlayerId": "proc_b_referee",
+    "actor": "SYSTEM",
+    "actorRole": "SYSTEM",
+    "details": "Awarded 10 referral points to Multi-Process Referrer (Entry: entry_proc_100, Comp: comp_proc_100)",
+    "success": true,
+    "metadata": {
+      "pointTxId": "pt_1789065262032_e82c1ea9",
+      "points": 10
+    }
+  },
+  {
+    "id": "ref_aud_1789065262029_163ff7",
+    "timestamp": "2026-09-10T18:34:22.029Z",
+    "action": "DEPOSIT_QUALIFIED",
+    "referrerPlayerId": "proc_a_referrer",
+    "referredPlayerId": "proc_b_referee",
+    "actor": "proc_b_referee",
+    "actorRole": "PLAYER",
+    "details": "Referred player confirmed deposit of 200 ETB (Tx: tx_dep_proc_b)",
+    "success": true
+  },
+  {
+    "id": "ref_aud_1789065262028_6a951b",
+    "timestamp": "2026-09-10T18:34:22.028Z",
+    "action": "PHONE_VERIFIED",
+    "referrerPlayerId": "proc_a_referrer",
+    "referredPlayerId": "proc_b_referee",
+    "actor": "proc_b_referee",
+    "actorRole": "PLAYER",
+    "details": "Referred player phone verified successfully",
+    "success": true
+  },
+  {
+    "id": "ref_aud_1789065262026_a22c75",
+    "timestamp": "2026-09-10T18:34:22.026Z",
+    "action": "REFERRAL_CREATED",
+    "referrerPlayerId": "proc_a_referrer",
+    "referredPlayerId": "proc_b_referee",
+    "actor": "proc_b_referee",
+    "actorRole": "PLAYER",
+    "details": "Referral relationship created in REGISTERED status",
+    "success": true
+  }
+]

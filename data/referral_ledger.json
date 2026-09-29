@@ -1,0 +1,36 @@
+[
+  {
+    "id": "pt_1789065262032_e82c1ea9",
+    "userId": "proc_a_referrer",
+    "sourceReferralId": "ref_1789065262026_80a537f3",
+    "referredUserId": "proc_b_referee",
+    "type": "REWARD_EARNED",
+    "points": 10,
+    "balanceAfter": 10,
+    "timestamp": "2026-09-10T18:34:22.032Z",
+    "reason": "Referral reward for Multi-Process Referee playing 100 ETB competition \"Multi-Instance Matchweek 100 ETB\"",
+    "sourceCompetitionId": "comp_proc_100",
+    "sourceEntryId": "entry_proc_100",
+    "status": "CONFIRMED",
+    "idempotencyKey": "rew_ref_ref_1789065262026_80a537f3_entry_proc_100",
+    "actorId": "SYSTEM",
+    "actorRole": "SYSTEM"
+  },
+  {
+    "id": "pt_rev_1789065262034_2300e4cb",
+    "userId": "proc_a_referrer",
+    "sourceReferralId": "ref_1789065262026_80a537f3",
+    "referredUserId": "proc_b_referee",
+    "type": "REWARD_REVERSED",
+    "points": -10,
+    "balanceAfter": 0,
+    "timestamp": "2026-09-10T18:34:22.034Z",
+    "reason": "Reward reversed due to entry refund/void: Match abandoned",
+    "sourceEntryId": "entry_proc_100",
+    "sourceCompetitionId": "comp_proc_100",
+    "status": "REVERSED",
+    "idempotencyKey": "rev_ref_1789065262026_80a537f3_entry_proc_100",
+    "actorId": "SYSTEM",
+    "actorRole": "SYSTEM"
+  }
+]

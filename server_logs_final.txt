@@ -1,0 +1,6 @@
+
+> react-example@0.0.0 start
+> node dist/server.cjs
+
+Server running on http://localhost:3000
+Killed

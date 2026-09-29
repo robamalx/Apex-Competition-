@@ -1,0 +1,101 @@
+
+> react-example@0.0.0 start
+> node dist/server.cjs
+
+Server running on http://localhost:3000
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194104331
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194104331
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788194316715
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194379759
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194379759
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194413869
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194413869
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194451241
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194451241
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194546232
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194546232
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788194590894
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788194590894
+4:43:11 PM [vite] (client) page reload data/database.json
+4:43:11 PM [vite] (client) page reload server_logs_tests.txt
+4:43:47 PM [vite] (client) page reload data/database.json
+4:43:47 PM [vite] (client) page reload server_logs_tests.txt
+4:44:24 PM [vite] (client) page reload data/database.json
+4:44:24 PM [vite] (client) page reload server_logs_tests.txt
+4:44:24 PM [vite] (client) page reload data/database.json
+4:44:24 PM [vite] (client) page reload server_logs_tests.txt
+4:44:30 PM [vite] (client) page reload data/database.json
+4:44:30 PM [vite] (client) page reload server_logs_tests.txt
+4:44:30 PM [vite] (client) page reload j12_results.json
+4:44:30 PM [vite] (client) page reload server_logs_tests.txt
+4:44:39 PM [vite] (client) page reload data/database.json
+4:46:16 PM [vite] (client) page reload data/database.json
+4:46:16 PM [vite] (client) page reload server_logs_tests.txt
+4:48:00 PM [vite] (client) page reload server_logs_tests.txt
+4:48:00 PM [vite] (client) page reload data/database.json
+4:49:46 PM [vite] (client) page reload data/database.json
+4:51:41 PM [vite] (client) page reload server_logs_tests.txt
+4:51:41 PM [vite] (client) page reload data/database.json
+4:53:43 PM [vite] (client) page reload server_logs_tests.txt
+4:53:43 PM [vite] (client) page reload data/database.json
+4:56:04 PM [vite] (client) page reload data/database.json
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788195381114
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788195381114
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788195386525
+4:56:37 PM [vite] (client) page reload server_logs_tests.txt
+4:56:37 PM [vite] (client) page reload data/database.json
+4:58:40 PM [vite] (client) page reload data/database.json
+4:58:40 PM [vite] (client) page reload server_logs_tests.txt
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788195524127
+4:58:54 PM [vite] (client) page reload server_logs_tests.txt
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788195538477
+4:59:09 PM [vite] (client) page reload data/database.json
+4:59:09 PM [vite] (client) page reload server_logs_tests.txt
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788195552910
+4:59:23 PM [vite] (client) page reload data/database.json
+4:59:23 PM [vite] (client) page reload server_logs_tests.txt
+5:00:45 PM [vite] (client) page reload data/database.json
+5:00:45 PM [vite] (client) page reload server_logs_tests.txt
+5:01:10 PM [vite] (client) page reload server_logs_tests.txt
+5:01:10 PM [vite] (client) page reload data/database.json
+5:01:33 PM [vite] (client) page reload server_logs_tests.txt
+5:01:57 PM [vite] (client) page reload data/database.json
+5:01:57 PM [vite] (client) page reload server_logs_tests.txt
+5:03:59 PM [vite] (client) page reload data/database.json
+5:04:02 PM [vite] (client) page reload server_logs_tests.txt
+5:07:57 PM [vite] (client) page reload server_logs_tests.txt
+5:07:57 PM [vite] (client) page reload data/database.json
+5:07:57 PM [vite] (client) page reload server.ts
+5:07:57 PM [vite] (client) page reload src/server/stageJ2Service.ts
+5:07:57 PM [vite] (client) page reload src/server/stageFinalAService.ts
+5:08:32 PM [vite] (client) page reload server_logs_tests.txt
+5:08:32 PM [vite] (client) page reload data/database.json
+5:09:45 PM [vite] (client) page reload data/database.json
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788196356760
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788196356760
+5:12:38 PM [vite] (client) page reload data/database.json
+5:12:38 PM [vite] (client) page reload server_logs_tests.txt
+5:12:38 PM [vite] (client) page reload financials.json
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788196527775
+5:15:39 PM [vite] (client) page reload server_logs_tests.txt
+5:15:39 PM [vite] (client) page reload data/database.json
+5:15:39 PM [vite] (client) page reload j12_audit_report.json
+5:15:39 PM [vite] (client) page reload j12_results.json
+5:16:00 PM [vite] (client) page reload server_logs_tests.txt
+5:16:00 PM [vite] (client) page reload data/database.json
+5:16:11 PM [vite] (client) page reload data/database.json
+5:16:11 PM [vite] (client) page reload server_logs_tests.txt
+5:16:11 PM [vite] (client) page reload financials.json
+5:18:31 PM [vite] (client) page reload server_logs_tests.txt
+5:18:31 PM [vite] (client) page reload data/database.json
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_imm_1788196856972
+5:21:08 PM [vite] (client) page reload data/database.json
+5:21:08 PM [vite] (client) page reload server_logs_tests.txt
+5:22:12 PM [vite] (client) page reload server_logs_tests.txt
+5:22:12 PM [vite] (client) page reload run_all_tests.cjs
+5:22:12 PM [vite] (client) page reload data/database.json
+5:22:53 PM [vite] (client) page reload server_logs_tests.txt
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to mutate financial fields on completed transaction tx_audit_imm_1788197040732
+FINANCIAL_LEDGER_IMMUTABLE_ERROR: Attempted to delete financial transaction tx_audit_imm_1788197040732
+5:24:01 PM [vite] (client) page reload data/database.json
+5:24:01 PM [vite] (client) page reload server_logs_tests.txt

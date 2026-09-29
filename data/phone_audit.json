@@ -1,0 +1,35 @@
+[
+  {
+    "id": "pva_1789063765382_a1qku",
+    "timestamp": "2026-09-10T18:09:25.382Z",
+    "userId": "multi_inst_user_1",
+    "actor": "PLAYER",
+    "actorRole": "PLAYER",
+    "action": "OTP_VERIFIED",
+    "canonicalPhoneMasked": "+251 91 ****655",
+    "details": "Phone number +251 91 ****655 successfully verified via SMS. Account transitioned to ACTIVE.",
+    "success": true
+  },
+  {
+    "id": "pva_1789063765380_hsj9j",
+    "timestamp": "2026-09-10T18:09:25.380Z",
+    "userId": "multi_inst_user_1",
+    "actor": "PLAYER",
+    "actorRole": "PLAYER",
+    "action": "OTP_FAILED",
+    "canonicalPhoneMasked": "+251 91 ****655",
+    "details": "Incorrect OTP entered (Attempt 1/5). Locked: false",
+    "success": false
+  },
+  {
+    "id": "pva_1789063765377_qytp2",
+    "timestamp": "2026-09-10T18:09:25.377Z",
+    "userId": "multi_inst_user_1",
+    "actor": "PLAYER",
+    "actorRole": "PLAYER",
+    "action": "OTP_SENT",
+    "canonicalPhoneMasked": "+251 91 ****655",
+    "details": "OTP challenge sent via provider-mock-verification. Failover used: false",
+    "success": true
+  }
+]

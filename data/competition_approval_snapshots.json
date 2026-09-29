@@ -1,0 +1,2658 @@
+[
+  {
+    "id": "snap_comp_1789066173449_vcmw8_v1",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "title": "Premier League Matchweek 3 Official",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:49:33.454Z",
+    "version": 1,
+    "snapshotHash": "dc7e976f599a16213f6e3b6c17248a0a40fa3510f611e4b7ee50b6dfa65f40dd",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:49:33.454Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066173462_7xzia_v1",
+    "competitionId": "comp_1789066173462_7xzia",
+    "title": "Approval Idempotency Draft",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:49:33.463Z",
+    "version": 1,
+    "snapshotHash": "a4c4e67a41c1ae2ca9b94ae5579d4acfbc976106531dda27006e8686fdfb8b69",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:49:33.463Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066173464_2bnmm_v1",
+    "competitionId": "comp_1789066173464_2bnmm",
+    "title": "Concurrent Admin Approval Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:49:33.465Z",
+    "version": 1,
+    "snapshotHash": "b14f2483808ff37bc0dd32935ce1c75bacbc605ced1a9f487fd79ae153945061",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:49:33.465Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066173467_u2t6a_v1",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "title": "End-to-End Two-Layer Publishing Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 50,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:49:33.469Z",
+    "version": 1,
+    "snapshotHash": "7834e96d735e2c6e5bbb5a162d236258c5ca7d40bde3eb03dcba46d6a491253a",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:49:33.469Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066223296_be42m_v1",
+    "competitionId": "comp_1789066223296_be42m",
+    "title": "Premier League Matchweek 3 Official",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:50:23.321Z",
+    "version": 1,
+    "snapshotHash": "8265615911dee2afd8fd05db78793d599685ff20f59193b3de1d214bf826922c",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:50:23.321Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066223337_bqd9u_v1",
+    "competitionId": "comp_1789066223337_bqd9u",
+    "title": "Approval Idempotency Draft",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:50:23.338Z",
+    "version": 1,
+    "snapshotHash": "15ba485699bdee8bb834a7d75fcad45fd775fe46c1e1215861ddc8d28bf7c75d",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:50:23.338Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066223340_0tnwj_v1",
+    "competitionId": "comp_1789066223340_0tnwj",
+    "title": "Concurrent Admin Approval Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:50:23.342Z",
+    "version": 1,
+    "snapshotHash": "991a74fb853506cc8f8d8c25b97dabec6c19318a42f98db6c3c65d71bc558863",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:50:23.342Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789066223344_73qso_v1",
+    "competitionId": "comp_1789066223344_73qso",
+    "title": "End-to-End Two-Layer Publishing Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 50,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T18:50:23.345Z",
+    "version": 1,
+    "snapshotHash": "f6a14ec224e87ccb38dc86778ec907f18a2841ca69580fbcd6d2fb2eb6ffa63d",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T18:50:23.345Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789068798241_4q17r_v1",
+    "competitionId": "comp_1789068798241_4q17r",
+    "title": "Premier League Matchweek 3 Official",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:33:18.249Z",
+    "version": 1,
+    "snapshotHash": "afecdda6f0fbcc4117967ff3c723a9a3b909846afbdd3fa8c92280774510c563",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:33:18.249Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789068798266_p00qj_v1",
+    "competitionId": "comp_1789068798266_p00qj",
+    "title": "Approval Idempotency Draft",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:33:18.267Z",
+    "version": 1,
+    "snapshotHash": "1eca1c0b91788a21ee21e364db16b23b6100d39715051b9bd129052269bf56c0",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:33:18.267Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789068798269_us56m_v1",
+    "competitionId": "comp_1789068798269_us56m",
+    "title": "Concurrent Admin Approval Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:33:18.271Z",
+    "version": 1,
+    "snapshotHash": "13293647d4c0fb39321f9b3739f4aa58cc5f0c71deee75f2f7343b2b21dcc239",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:33:18.271Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789068798275_idodg_v1",
+    "competitionId": "comp_1789068798275_idodg",
+    "title": "End-to-End Two-Layer Publishing Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 50,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:33:18.278Z",
+    "version": 1,
+    "snapshotHash": "ea4141cda013305e568a848a30935061aa95965844d9f926960d36401fdd80cd",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:33:18.277Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789070120079_905kf_v1",
+    "competitionId": "comp_1789070120079_905kf",
+    "title": "Premier League Matchweek 3 Official",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:55:20.088Z",
+    "version": 1,
+    "snapshotHash": "a9578d8c67725a904034114bd19cf35958d5df4a9358c1fcec88d68bb33da623",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:55:20.088Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789070120107_82js3_v1",
+    "competitionId": "comp_1789070120107_82js3",
+    "title": "Approval Idempotency Draft",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:55:20.109Z",
+    "version": 1,
+    "snapshotHash": "5bcb15addb75481c89a3254698c016d492cba1864e5a53f9c68cea26ffeedcdc",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:55:20.109Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789070120111_a5l9g_v1",
+    "competitionId": "comp_1789070120111_a5l9g",
+    "title": "Concurrent Admin Approval Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 100,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:55:20.116Z",
+    "version": 1,
+    "snapshotHash": "c533ec7fc2a0193b516c785441874b80ab478401aad2474666b72ffaccf975b0",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:55:20.116Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  },
+  {
+    "id": "snap_comp_1789070120118_5sih5_v1",
+    "competitionId": "comp_1789070120118_5sih5",
+    "title": "End-to-End Two-Layer Publishing Test",
+    "league": "Premier League",
+    "season": "2026/27",
+    "matchweek": "Matchweek 3",
+    "fixtureCount": 10,
+    "entryFeeETB": 50,
+    "maxPlayers": 100,
+    "prizeDistribution": {
+      "rank1": 0.55,
+      "rank2": 0.15,
+      "rank3": 0.05,
+      "house": 0.25
+    },
+    "scoringRules": {
+      "1X2": 3,
+      "CORRECT_SCORE": 6,
+      "OVER_UNDER_2_5": 2,
+      "OVER_UNDER_1_5": 2,
+      "BTTS": 1,
+      "DOUBLE_CHANCE": 1,
+      "DRAW_NO_BET": 1,
+      "ODD_EVEN": 1,
+      "HALF_TIME_RESULT": 1,
+      "HALF_TIME_FULL_TIME": 2
+    },
+    "tieBreakPolicy": "SHARED_PRIZE",
+    "canonicalFixtureIds": [
+      "cf_PL_2026_MW3_ARS_CHE",
+      "cf_PL_2026_MW3_LIV_MCI",
+      "cf_PL_2026_MW3_MUN_TOT",
+      "cf_PL_2026_MW3_AVL_NEW",
+      "cf_PL_2026_MW3_BHA_WHU",
+      "cf_PL_2026_MW3_FUL_BRE",
+      "cf_PL_2026_MW3_CRY_WOL",
+      "cf_PL_2026_MW3_EVE_BOU",
+      "cf_PL_2026_MW3_NFO_IPS",
+      "cf_PL_2026_MW3_LEI_SOU"
+    ],
+    "fixtures": [
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_ARS_CHE",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "kickoffTime": "2026-09-20T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LIV_MCI",
+        "homeTeam": "Liverpool",
+        "awayTeam": "Manchester City",
+        "kickoffTime": "2026-09-20T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_MUN_TOT",
+        "homeTeam": "Manchester United",
+        "awayTeam": "Tottenham Hotspur",
+        "kickoffTime": "2026-09-20T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_AVL_NEW",
+        "homeTeam": "Aston Villa",
+        "awayTeam": "Newcastle United",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_BHA_WHU",
+        "homeTeam": "Brighton & Hove Albion",
+        "awayTeam": "West Ham United",
+        "kickoffTime": "2026-09-21T16:30:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_FUL_BRE",
+        "homeTeam": "Fulham",
+        "awayTeam": "Brentford",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_CRY_WOL",
+        "homeTeam": "Crystal Palace",
+        "awayTeam": "Wolverhampton Wanderers",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_EVE_BOU",
+        "homeTeam": "Everton",
+        "awayTeam": "Bournemouth",
+        "kickoffTime": "2026-09-21T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_NFO_IPS",
+        "homeTeam": "Nottingham Forest",
+        "awayTeam": "Ipswich Town",
+        "kickoffTime": "2026-09-22T19:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      },
+      {
+        "canonicalFixtureId": "cf_PL_2026_MW3_LEI_SOU",
+        "homeTeam": "Leicester City",
+        "awayTeam": "Southampton",
+        "kickoffTime": "2026-09-22T14:00:00.000Z",
+        "league": "Premier League",
+        "season": "2026/27",
+        "matchweek": 3,
+        "status": "SCHEDULED"
+      }
+    ],
+    "enabledMarkets": [
+      "1X2",
+      "OVER_UNDER_2_5",
+      "BTTS",
+      "DOUBLE_CHANCE",
+      "CORRECT_SCORE"
+    ],
+    "approvingAdminId": "usr_adm_test_01",
+    "approvingAdminName": "Admin Verifier",
+    "approvedAt": "2026-09-10T19:55:20.122Z",
+    "version": 1,
+    "snapshotHash": "9e83af32447249de8b9ee9635af2610f0db88ec834b3cfe7e5e2e6a0b0b6d8e3",
+    "validationReport": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "checkedAt": "2026-09-10T19:55:20.122Z",
+      "fixtureCount": 10,
+      "expectedMatchweek": 3,
+      "expectedLeague": "Premier League",
+      "expectedSeason": "2026/27"
+    }
+  }
+]

@@ -1,0 +1,2208 @@
+[
+  {
+    "id": "cpa_1790600249497_bc6f20",
+    "timestamp": "2026-09-28T12:57:29.497Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1790600249489_6f9em. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1790600249496_cf1ba4",
+    "timestamp": "2026-09-28T12:57:29.496Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1790600249495_2da978",
+    "timestamp": "2026-09-28T12:57:29.495Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1790600249489_6f9em. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1790600249493_9dbb51",
+    "timestamp": "2026-09-28T12:57:29.494Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "VALIDATION_FAILED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "VALIDATION_FAILED",
+    "details": "Submission hard blocked due to validation failures: Fixture cf_PL_2026_MW3_ARS_CHE kickoff (2026-09-20T14:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_LIV_MCI kickoff (2026-09-20T16:30:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_MUN_TOT kickoff (2026-09-20T19:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_AVL_NEW kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_BHA_WHU kickoff (2026-09-21T16:30:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_FUL_BRE kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_CRY_WOL kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_EVE_BOU kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_NFO_IPS kickoff (2026-09-22T19:00:00.000Z) is in the past. New competitions require future kickoffs.; Fixture cf_PL_2026_MW3_LEI_SOU kickoff (2026-09-22T14:00:00.000Z) is in the past. New competitions require future kickoffs.."
+  },
+  {
+    "id": "cpa_1790600249492_707c4b",
+    "timestamp": "2026-09-28T12:57:29.492Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "VALIDATION_FAILED",
+    "details": "Layer 1 validation FAILED with 10 error(s): KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED, KICKOFF_ALREADY_PASSED.",
+    "metadata": {
+      "errors": [
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_ARS_CHE",
+          "message": "Fixture cf_PL_2026_MW3_ARS_CHE kickoff (2026-09-20T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_LIV_MCI",
+          "message": "Fixture cf_PL_2026_MW3_LIV_MCI kickoff (2026-09-20T16:30:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_MUN_TOT",
+          "message": "Fixture cf_PL_2026_MW3_MUN_TOT kickoff (2026-09-20T19:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_AVL_NEW",
+          "message": "Fixture cf_PL_2026_MW3_AVL_NEW kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_BHA_WHU",
+          "message": "Fixture cf_PL_2026_MW3_BHA_WHU kickoff (2026-09-21T16:30:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_FUL_BRE",
+          "message": "Fixture cf_PL_2026_MW3_FUL_BRE kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_CRY_WOL",
+          "message": "Fixture cf_PL_2026_MW3_CRY_WOL kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_EVE_BOU",
+          "message": "Fixture cf_PL_2026_MW3_EVE_BOU kickoff (2026-09-21T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_NFO_IPS",
+          "message": "Fixture cf_PL_2026_MW3_NFO_IPS kickoff (2026-09-22T19:00:00.000Z) is in the past. New competitions require future kickoffs."
+        },
+        {
+          "code": "KICKOFF_ALREADY_PASSED",
+          "fixtureId": "cf_PL_2026_MW3_LEI_SOU",
+          "message": "Fixture cf_PL_2026_MW3_LEI_SOU kickoff (2026-09-22T14:00:00.000Z) is in the past. New competitions require future kickoffs."
+        }
+      ]
+    }
+  },
+  {
+    "id": "cpa_1790600249489_01aa09",
+    "timestamp": "2026-09-28T12:57:29.489Z",
+    "competitionId": "comp_1790600249489_6f9em",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120124_c83f6f",
+    "timestamp": "2026-09-10T19:55:20.124Z",
+    "competitionId": "comp_1789070120118_5sih5",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' successfully published and is now open/joinable based on approved snapshot snap_comp_1789070120118_5sih5_v1."
+  },
+  {
+    "id": "cpa_1789070120123_138947",
+    "timestamp": "2026-09-10T19:55:20.123Z",
+    "competitionId": "comp_1789070120118_5sih5",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789070120118_5sih5_v1 created (Hash: 9e83af324472).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789070120118_5sih5_v1",
+      "snapshotHash": "9e83af32447249de8b9ee9635af2610f0db88ec834b3cfe7e5e2e6a0b0b6d8e3"
+    }
+  },
+  {
+    "id": "cpa_1789070120121_efa6cd",
+    "timestamp": "2026-09-10T19:55:20.121Z",
+    "competitionId": "comp_1789070120118_5sih5",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120120_08af6c",
+    "timestamp": "2026-09-10T19:55:20.120Z",
+    "competitionId": "comp_1789070120118_5sih5",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120118_77e30e",
+    "timestamp": "2026-09-10T19:55:20.119Z",
+    "competitionId": "comp_1789070120118_5sih5",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'End-to-End Two-Layer Publishing Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120118_ed018c",
+    "timestamp": "2026-09-10T19:55:20.118Z",
+    "competitionId": "comp_1789070120118_oddzv",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unjoinable Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120116_941c2f",
+    "timestamp": "2026-09-10T19:55:20.117Z",
+    "competitionId": "comp_1789070120111_a5l9g",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Concurrent Admin Approval Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789070120111_a5l9g_v1 created (Hash: c533ec7fc2a0).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789070120111_a5l9g_v1",
+      "snapshotHash": "c533ec7fc2a0193b516c785441874b80ab478401aad2474666b72ffaccf975b0"
+    }
+  },
+  {
+    "id": "cpa_1789070120115_73f8d9",
+    "timestamp": "2026-09-10T19:55:20.115Z",
+    "competitionId": "comp_1789070120111_a5l9g",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Concurrent Admin Approval Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120112_dd9a07",
+    "timestamp": "2026-09-10T19:55:20.112Z",
+    "competitionId": "comp_1789070120111_a5l9g",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120111_a35362",
+    "timestamp": "2026-09-10T19:55:20.111Z",
+    "competitionId": "comp_1789070120111_a5l9g",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Concurrent Admin Approval Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120110_601b27",
+    "timestamp": "2026-09-10T19:55:20.110Z",
+    "competitionId": "comp_1789070120107_82js3",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Approval Idempotency Draft' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789070120107_82js3_v1 created (Hash: 5bcb15addb75).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789070120107_82js3_v1",
+      "snapshotHash": "5bcb15addb75481c89a3254698c016d492cba1864e5a53f9c68cea26ffeedcdc"
+    }
+  },
+  {
+    "id": "cpa_1789070120108_620406",
+    "timestamp": "2026-09-10T19:55:20.108Z",
+    "competitionId": "comp_1789070120107_82js3",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Approval Idempotency Draft' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120108_562e01",
+    "timestamp": "2026-09-10T19:55:20.108Z",
+    "competitionId": "comp_1789070120107_82js3",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120107_34da58",
+    "timestamp": "2026-09-10T19:55:20.107Z",
+    "competitionId": "comp_1789070120107_82js3",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Approval Idempotency Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120106_064b6a",
+    "timestamp": "2026-09-10T19:55:20.106Z",
+    "competitionId": "comp_1789070120104_78e8g",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Idempotency Draft Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120105_4db09a",
+    "timestamp": "2026-09-10T19:55:20.105Z",
+    "competitionId": "comp_1789070120104_78e8g",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120104_f246f6",
+    "timestamp": "2026-09-10T19:55:20.104Z",
+    "competitionId": "comp_1789070120104_78e8g",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Idempotency Draft Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120103_2ca2b3",
+    "timestamp": "2026-09-10T19:55:20.103Z",
+    "competitionId": "comp_1789070120102_zbm87",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'DRAFT' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789070120103_e15ac4",
+    "timestamp": "2026-09-10T19:55:20.103Z",
+    "competitionId": "comp_1789070120102_zbm87",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unapproved Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120101_618c40",
+    "timestamp": "2026-09-10T19:55:20.101Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'Premier League Matchweek 3 Official' successfully published and is now open/joinable based on approved snapshot snap_comp_1789070120079_905kf_v1."
+  },
+  {
+    "id": "cpa_1789070120100_0cd3d4",
+    "timestamp": "2026-09-10T19:55:20.100Z",
+    "competitionId": "comp_1789070120098_vtos0",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'ADMIN_REJECTED' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789070120100_906897",
+    "timestamp": "2026-09-10T19:55:20.100Z",
+    "competitionId": "comp_1789070120098_vtos0",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Rejected by compliance.",
+    "details": "Competition 'Rejected Comp Join Test' rejected by Admin Admin Verifier. Reason: Rejected by compliance."
+  },
+  {
+    "id": "cpa_1789070120099_71de27",
+    "timestamp": "2026-09-10T19:55:20.099Z",
+    "competitionId": "comp_1789070120098_vtos0",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Rejected Comp Join Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120098_18e6ed",
+    "timestamp": "2026-09-10T19:55:20.098Z",
+    "competitionId": "comp_1789070120098_vtos0",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120098_945cbb",
+    "timestamp": "2026-09-10T19:55:20.098Z",
+    "competitionId": "comp_1789070120098_vtos0",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Rejected Comp Join Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120097_605845",
+    "timestamp": "2026-09-10T19:55:20.097Z",
+    "competitionId": "comp_1789070120093_50383",
+    "action": "CHANGES_REQUESTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "CHANGES_REQUESTED",
+    "reason": "Please adjust description.",
+    "details": "Admin Admin Verifier requested changes for competition 'Premier League MW3 Changes Test'. Details: Please adjust description."
+  },
+  {
+    "id": "cpa_1789070120096_936f73",
+    "timestamp": "2026-09-10T19:55:20.096Z",
+    "competitionId": "comp_1789070120093_50383",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Changes Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120094_354127",
+    "timestamp": "2026-09-10T19:55:20.094Z",
+    "competitionId": "comp_1789070120093_50383",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120094_a27347",
+    "timestamp": "2026-09-10T19:55:20.094Z",
+    "competitionId": "comp_1789070120093_50383",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Changes Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120093_b86094",
+    "timestamp": "2026-09-10T19:55:20.093Z",
+    "competitionId": "comp_1789070120090_dezq0",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Schedule conflict with broadcast rights.",
+    "details": "Competition 'Premier League MW3 Reject Test' rejected by Admin Admin Verifier. Reason: Schedule conflict with broadcast rights."
+  },
+  {
+    "id": "cpa_1789070120092_2a6903",
+    "timestamp": "2026-09-10T19:55:20.092Z",
+    "competitionId": "comp_1789070120090_dezq0",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Reject Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120091_451c8d",
+    "timestamp": "2026-09-10T19:55:20.091Z",
+    "competitionId": "comp_1789070120090_dezq0",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120090_8c89c5",
+    "timestamp": "2026-09-10T19:55:20.090Z",
+    "competitionId": "comp_1789070120090_dezq0",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Reject Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789070120089_33ab05",
+    "timestamp": "2026-09-10T19:55:20.089Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Premier League Matchweek 3 Official' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789070120079_905kf_v1 created (Hash: a9578d8c6772).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789070120079_905kf_v1",
+      "snapshotHash": "a9578d8c67725a904034114bd19cf35958d5df4a9358c1fcec88d68bb33da623"
+    }
+  },
+  {
+    "id": "cpa_1789070120087_70d609",
+    "timestamp": "2026-09-10T19:55:20.087Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789070120079_905kf. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1789070120086_0bd166",
+    "timestamp": "2026-09-10T19:55:20.086Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1789070120086_b8af33",
+    "timestamp": "2026-09-10T19:55:20.086Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789070120079_905kf. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1789070120084_ba1d81",
+    "timestamp": "2026-09-10T19:55:20.084Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League Matchweek 3 Official' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789070120083_bac423",
+    "timestamp": "2026-09-10T19:55:20.083Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789070120080_b1165a",
+    "timestamp": "2026-09-10T19:55:20.080Z",
+    "competitionId": "comp_1789070120079_905kf",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798280_2b9e1f",
+    "timestamp": "2026-09-10T19:33:18.280Z",
+    "competitionId": "comp_1789068798275_idodg",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' successfully published and is now open/joinable based on approved snapshot snap_comp_1789068798275_idodg_v1."
+  },
+  {
+    "id": "cpa_1789068798279_b60534",
+    "timestamp": "2026-09-10T19:33:18.279Z",
+    "competitionId": "comp_1789068798275_idodg",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789068798275_idodg_v1 created (Hash: ea4141cda013).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789068798275_idodg_v1",
+      "snapshotHash": "ea4141cda013305e568a848a30935061aa95965844d9f926960d36401fdd80cd"
+    }
+  },
+  {
+    "id": "cpa_1789068798276_3cfefb",
+    "timestamp": "2026-09-10T19:33:18.276Z",
+    "competitionId": "comp_1789068798275_idodg",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798276_b51a87",
+    "timestamp": "2026-09-10T19:33:18.276Z",
+    "competitionId": "comp_1789068798275_idodg",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798275_0e98ef",
+    "timestamp": "2026-09-10T19:33:18.275Z",
+    "competitionId": "comp_1789068798275_idodg",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'End-to-End Two-Layer Publishing Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798274_fbd415",
+    "timestamp": "2026-09-10T19:33:18.274Z",
+    "competitionId": "comp_1789068798274_29bgd",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unjoinable Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798272_c27762",
+    "timestamp": "2026-09-10T19:33:18.272Z",
+    "competitionId": "comp_1789068798269_us56m",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Concurrent Admin Approval Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789068798269_us56m_v1 created (Hash: 13293647d4c0).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789068798269_us56m_v1",
+      "snapshotHash": "13293647d4c0fb39321f9b3739f4aa58cc5f0c71deee75f2f7343b2b21dcc239"
+    }
+  },
+  {
+    "id": "cpa_1789068798271_088465",
+    "timestamp": "2026-09-10T19:33:18.271Z",
+    "competitionId": "comp_1789068798269_us56m",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Concurrent Admin Approval Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798270_fa4e5b",
+    "timestamp": "2026-09-10T19:33:18.270Z",
+    "competitionId": "comp_1789068798269_us56m",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798269_32b06d",
+    "timestamp": "2026-09-10T19:33:18.269Z",
+    "competitionId": "comp_1789068798269_us56m",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Concurrent Admin Approval Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798268_636fe2",
+    "timestamp": "2026-09-10T19:33:18.268Z",
+    "competitionId": "comp_1789068798266_p00qj",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Approval Idempotency Draft' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789068798266_p00qj_v1 created (Hash: 1eca1c0b9178).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789068798266_p00qj_v1",
+      "snapshotHash": "1eca1c0b91788a21ee21e364db16b23b6100d39715051b9bd129052269bf56c0"
+    }
+  },
+  {
+    "id": "cpa_1789068798267_50ab2d",
+    "timestamp": "2026-09-10T19:33:18.267Z",
+    "competitionId": "comp_1789068798266_p00qj",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Approval Idempotency Draft' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798266_e0d585",
+    "timestamp": "2026-09-10T19:33:18.266Z",
+    "competitionId": "comp_1789068798266_p00qj",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798266_c99e2e",
+    "timestamp": "2026-09-10T19:33:18.266Z",
+    "competitionId": "comp_1789068798266_p00qj",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Approval Idempotency Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798265_9968db",
+    "timestamp": "2026-09-10T19:33:18.265Z",
+    "competitionId": "comp_1789068798264_hd2qh",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Idempotency Draft Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798265_14ba9a",
+    "timestamp": "2026-09-10T19:33:18.265Z",
+    "competitionId": "comp_1789068798264_hd2qh",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798264_ce8b19",
+    "timestamp": "2026-09-10T19:33:18.264Z",
+    "competitionId": "comp_1789068798264_hd2qh",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Idempotency Draft Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798264_673aec",
+    "timestamp": "2026-09-10T19:33:18.264Z",
+    "competitionId": "comp_1789068798263_3mu8g",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'DRAFT' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789068798263_e56f07",
+    "timestamp": "2026-09-10T19:33:18.263Z",
+    "competitionId": "comp_1789068798263_3mu8g",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unapproved Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798261_0fc481",
+    "timestamp": "2026-09-10T19:33:18.261Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'Premier League Matchweek 3 Official' successfully published and is now open/joinable based on approved snapshot snap_comp_1789068798241_4q17r_v1."
+  },
+  {
+    "id": "cpa_1789068798260_8de2e3",
+    "timestamp": "2026-09-10T19:33:18.260Z",
+    "competitionId": "comp_1789068798257_kzwt5",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'ADMIN_REJECTED' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789068798260_05a0a5",
+    "timestamp": "2026-09-10T19:33:18.260Z",
+    "competitionId": "comp_1789068798257_kzwt5",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Rejected by compliance.",
+    "details": "Competition 'Rejected Comp Join Test' rejected by Admin Admin Verifier. Reason: Rejected by compliance."
+  },
+  {
+    "id": "cpa_1789068798259_63f335",
+    "timestamp": "2026-09-10T19:33:18.259Z",
+    "competitionId": "comp_1789068798257_kzwt5",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Rejected Comp Join Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798258_2a5e5f",
+    "timestamp": "2026-09-10T19:33:18.258Z",
+    "competitionId": "comp_1789068798257_kzwt5",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798258_1282a8",
+    "timestamp": "2026-09-10T19:33:18.258Z",
+    "competitionId": "comp_1789068798257_kzwt5",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Rejected Comp Join Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798257_7e64ec",
+    "timestamp": "2026-09-10T19:33:18.257Z",
+    "competitionId": "comp_1789068798255_h99f1",
+    "action": "CHANGES_REQUESTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "CHANGES_REQUESTED",
+    "reason": "Please adjust description.",
+    "details": "Admin Admin Verifier requested changes for competition 'Premier League MW3 Changes Test'. Details: Please adjust description."
+  },
+  {
+    "id": "cpa_1789068798256_70ad55",
+    "timestamp": "2026-09-10T19:33:18.256Z",
+    "competitionId": "comp_1789068798255_h99f1",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Changes Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798255_ade9b8",
+    "timestamp": "2026-09-10T19:33:18.255Z",
+    "competitionId": "comp_1789068798255_h99f1",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798255_93a68b",
+    "timestamp": "2026-09-10T19:33:18.255Z",
+    "competitionId": "comp_1789068798255_h99f1",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Changes Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798254_db92c0",
+    "timestamp": "2026-09-10T19:33:18.254Z",
+    "competitionId": "comp_1789068798252_t0y32",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Schedule conflict with broadcast rights.",
+    "details": "Competition 'Premier League MW3 Reject Test' rejected by Admin Admin Verifier. Reason: Schedule conflict with broadcast rights."
+  },
+  {
+    "id": "cpa_1789068798253_de87f4",
+    "timestamp": "2026-09-10T19:33:18.253Z",
+    "competitionId": "comp_1789068798252_t0y32",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Reject Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798252_9ac088",
+    "timestamp": "2026-09-10T19:33:18.252Z",
+    "competitionId": "comp_1789068798252_t0y32",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798252_af08c7",
+    "timestamp": "2026-09-10T19:33:18.252Z",
+    "competitionId": "comp_1789068798252_t0y32",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Reject Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789068798251_c89e2e",
+    "timestamp": "2026-09-10T19:33:18.251Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Premier League Matchweek 3 Official' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789068798241_4q17r_v1 created (Hash: afecdda6f0fb).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789068798241_4q17r_v1",
+      "snapshotHash": "afecdda6f0fbcc4117967ff3c723a9a3b909846afbdd3fa8c92280774510c563"
+    }
+  },
+  {
+    "id": "cpa_1789068798248_8acdfe",
+    "timestamp": "2026-09-10T19:33:18.248Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789068798241_4q17r. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1789068798247_558b76",
+    "timestamp": "2026-09-10T19:33:18.247Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1789068798246_ec1a53",
+    "timestamp": "2026-09-10T19:33:18.247Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789068798241_4q17r. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1789068798245_c56a90",
+    "timestamp": "2026-09-10T19:33:18.245Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League Matchweek 3 Official' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789068798244_c855d1",
+    "timestamp": "2026-09-10T19:33:18.244Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789068798241_37c118",
+    "timestamp": "2026-09-10T19:33:18.242Z",
+    "competitionId": "comp_1789068798241_4q17r",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223347_491fcf",
+    "timestamp": "2026-09-10T18:50:23.347Z",
+    "competitionId": "comp_1789066223344_73qso",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' successfully published and is now open/joinable based on approved snapshot snap_comp_1789066223344_73qso_v1."
+  },
+  {
+    "id": "cpa_1789066223346_d9a201",
+    "timestamp": "2026-09-10T18:50:23.346Z",
+    "competitionId": "comp_1789066223344_73qso",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066223344_73qso_v1 created (Hash: f6a14ec224e8).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066223344_73qso_v1",
+      "snapshotHash": "f6a14ec224e87ccb38dc86778ec907f18a2841ca69580fbcd6d2fb2eb6ffa63d"
+    }
+  },
+  {
+    "id": "cpa_1789066223345_cd843e",
+    "timestamp": "2026-09-10T18:50:23.345Z",
+    "competitionId": "comp_1789066223344_73qso",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223344_a9d818",
+    "timestamp": "2026-09-10T18:50:23.344Z",
+    "competitionId": "comp_1789066223344_73qso",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223344_d4075f",
+    "timestamp": "2026-09-10T18:50:23.344Z",
+    "competitionId": "comp_1789066223344_73qso",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'End-to-End Two-Layer Publishing Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223343_c28eb3",
+    "timestamp": "2026-09-10T18:50:23.343Z",
+    "competitionId": "comp_1789066223343_1fmp5",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unjoinable Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223342_573035",
+    "timestamp": "2026-09-10T18:50:23.342Z",
+    "competitionId": "comp_1789066223340_0tnwj",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Concurrent Admin Approval Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066223340_0tnwj_v1 created (Hash: 991a74fb8535).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066223340_0tnwj_v1",
+      "snapshotHash": "991a74fb853506cc8f8d8c25b97dabec6c19318a42f98db6c3c65d71bc558863"
+    }
+  },
+  {
+    "id": "cpa_1789066223341_487a2a",
+    "timestamp": "2026-09-10T18:50:23.341Z",
+    "competitionId": "comp_1789066223340_0tnwj",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Concurrent Admin Approval Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223341_04f725",
+    "timestamp": "2026-09-10T18:50:23.341Z",
+    "competitionId": "comp_1789066223340_0tnwj",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223340_7f9662",
+    "timestamp": "2026-09-10T18:50:23.340Z",
+    "competitionId": "comp_1789066223340_0tnwj",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Concurrent Admin Approval Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223340_63ac36",
+    "timestamp": "2026-09-10T18:50:23.340Z",
+    "competitionId": "comp_1789066223337_bqd9u",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Approval Idempotency Draft' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066223337_bqd9u_v1 created (Hash: 15ba485699bd).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066223337_bqd9u_v1",
+      "snapshotHash": "15ba485699bdee8bb834a7d75fcad45fd775fe46c1e1215861ddc8d28bf7c75d"
+    }
+  },
+  {
+    "id": "cpa_1789066223338_6ce565",
+    "timestamp": "2026-09-10T18:50:23.338Z",
+    "competitionId": "comp_1789066223337_bqd9u",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Approval Idempotency Draft' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223337_c6ab07",
+    "timestamp": "2026-09-10T18:50:23.338Z",
+    "competitionId": "comp_1789066223337_bqd9u",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223337_d2aa19",
+    "timestamp": "2026-09-10T18:50:23.337Z",
+    "competitionId": "comp_1789066223337_bqd9u",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Approval Idempotency Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223336_073a45",
+    "timestamp": "2026-09-10T18:50:23.336Z",
+    "competitionId": "comp_1789066223335_q9n9n",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Idempotency Draft Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223336_2aaf05",
+    "timestamp": "2026-09-10T18:50:23.336Z",
+    "competitionId": "comp_1789066223335_q9n9n",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223335_751120",
+    "timestamp": "2026-09-10T18:50:23.335Z",
+    "competitionId": "comp_1789066223335_q9n9n",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Idempotency Draft Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223335_705a56",
+    "timestamp": "2026-09-10T18:50:23.335Z",
+    "competitionId": "comp_1789066223334_u8d9n",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'DRAFT' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789066223334_78a8ef",
+    "timestamp": "2026-09-10T18:50:23.334Z",
+    "competitionId": "comp_1789066223334_u8d9n",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unapproved Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223334_0e5901",
+    "timestamp": "2026-09-10T18:50:23.334Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'Premier League Matchweek 3 Official' successfully published and is now open/joinable based on approved snapshot snap_comp_1789066223296_be42m_v1."
+  },
+  {
+    "id": "cpa_1789066223330_4e35f2",
+    "timestamp": "2026-09-10T18:50:23.330Z",
+    "competitionId": "comp_1789066223327_ia0iu",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'ADMIN_REJECTED' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789066223329_6e900f",
+    "timestamp": "2026-09-10T18:50:23.329Z",
+    "competitionId": "comp_1789066223327_ia0iu",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Rejected by compliance.",
+    "details": "Competition 'Rejected Comp Join Test' rejected by Admin Admin Verifier. Reason: Rejected by compliance."
+  },
+  {
+    "id": "cpa_1789066223328_9f6424",
+    "timestamp": "2026-09-10T18:50:23.328Z",
+    "competitionId": "comp_1789066223327_ia0iu",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Rejected Comp Join Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223328_5c9ae8",
+    "timestamp": "2026-09-10T18:50:23.328Z",
+    "competitionId": "comp_1789066223327_ia0iu",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223327_be8840",
+    "timestamp": "2026-09-10T18:50:23.327Z",
+    "competitionId": "comp_1789066223327_ia0iu",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Rejected Comp Join Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223326_1714d7",
+    "timestamp": "2026-09-10T18:50:23.326Z",
+    "competitionId": "comp_1789066223325_m2pg7",
+    "action": "CHANGES_REQUESTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "CHANGES_REQUESTED",
+    "reason": "Please adjust description.",
+    "details": "Admin Admin Verifier requested changes for competition 'Premier League MW3 Changes Test'. Details: Please adjust description."
+  },
+  {
+    "id": "cpa_1789066223326_507c9d",
+    "timestamp": "2026-09-10T18:50:23.326Z",
+    "competitionId": "comp_1789066223325_m2pg7",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Changes Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223325_7ce791",
+    "timestamp": "2026-09-10T18:50:23.325Z",
+    "competitionId": "comp_1789066223325_m2pg7",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223325_d2abde",
+    "timestamp": "2026-09-10T18:50:23.325Z",
+    "competitionId": "comp_1789066223325_m2pg7",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Changes Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223324_cf7384",
+    "timestamp": "2026-09-10T18:50:23.324Z",
+    "competitionId": "comp_1789066223322_2i48c",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Schedule conflict with broadcast rights.",
+    "details": "Competition 'Premier League MW3 Reject Test' rejected by Admin Admin Verifier. Reason: Schedule conflict with broadcast rights."
+  },
+  {
+    "id": "cpa_1789066223323_bafd03",
+    "timestamp": "2026-09-10T18:50:23.323Z",
+    "competitionId": "comp_1789066223322_2i48c",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Reject Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223323_3181e4",
+    "timestamp": "2026-09-10T18:50:23.323Z",
+    "competitionId": "comp_1789066223322_2i48c",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223322_71506f",
+    "timestamp": "2026-09-10T18:50:23.322Z",
+    "competitionId": "comp_1789066223322_2i48c",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Reject Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066223322_afdaa4",
+    "timestamp": "2026-09-10T18:50:23.322Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Premier League Matchweek 3 Official' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066223296_be42m_v1 created (Hash: 8265615911de).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066223296_be42m_v1",
+      "snapshotHash": "8265615911dee2afd8fd05db78793d599685ff20f59193b3de1d214bf826922c"
+    }
+  },
+  {
+    "id": "cpa_1789066223320_ec4455",
+    "timestamp": "2026-09-10T18:50:23.320Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066223296_be42m. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066223320_f905f6",
+    "timestamp": "2026-09-10T18:50:23.320Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1789066223319_b06ad8",
+    "timestamp": "2026-09-10T18:50:23.319Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066223296_be42m. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066223318_037b85",
+    "timestamp": "2026-09-10T18:50:23.318Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League Matchweek 3 Official' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066223317_6d061e",
+    "timestamp": "2026-09-10T18:50:23.317Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066223297_6c9422",
+    "timestamp": "2026-09-10T18:50:23.297Z",
+    "competitionId": "comp_1789066223296_be42m",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173470_da30b7",
+    "timestamp": "2026-09-10T18:49:33.470Z",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' successfully published and is now open/joinable based on approved snapshot snap_comp_1789066173467_u2t6a_v1."
+  },
+  {
+    "id": "cpa_1789066173470_9c7c7f",
+    "timestamp": "2026-09-10T18:49:33.470Z",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066173467_u2t6a_v1 created (Hash: 7834e96d735e).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066173467_u2t6a_v1",
+      "snapshotHash": "7834e96d735e2c6e5bbb5a162d236258c5ca7d40bde3eb03dcba46d6a491253a"
+    }
+  },
+  {
+    "id": "cpa_1789066173468_dd0657",
+    "timestamp": "2026-09-10T18:49:33.468Z",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'End-to-End Two-Layer Publishing Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173468_cffcef",
+    "timestamp": "2026-09-10T18:49:33.468Z",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173467_59e604",
+    "timestamp": "2026-09-10T18:49:33.467Z",
+    "competitionId": "comp_1789066173467_u2t6a",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'End-to-End Two-Layer Publishing Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173467_1a2a30",
+    "timestamp": "2026-09-10T18:49:33.467Z",
+    "competitionId": "comp_1789066173467_ayyhe",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unjoinable Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173466_e8a81b",
+    "timestamp": "2026-09-10T18:49:33.466Z",
+    "competitionId": "comp_1789066173464_2bnmm",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Concurrent Admin Approval Test' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066173464_2bnmm_v1 created (Hash: b14f2483808f).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066173464_2bnmm_v1",
+      "snapshotHash": "b14f2483808ff37bc0dd32935ce1c75bacbc605ced1a9f487fd79ae153945061"
+    }
+  },
+  {
+    "id": "cpa_1789066173465_f22711",
+    "timestamp": "2026-09-10T18:49:33.465Z",
+    "competitionId": "comp_1789066173464_2bnmm",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Concurrent Admin Approval Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173465_5ec002",
+    "timestamp": "2026-09-10T18:49:33.465Z",
+    "competitionId": "comp_1789066173464_2bnmm",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173464_fad704",
+    "timestamp": "2026-09-10T18:49:33.464Z",
+    "competitionId": "comp_1789066173464_2bnmm",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Concurrent Admin Approval Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173464_fd8dcc",
+    "timestamp": "2026-09-10T18:49:33.464Z",
+    "competitionId": "comp_1789066173462_7xzia",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Approval Idempotency Draft' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066173462_7xzia_v1 created (Hash: a4c4e67a41c1).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066173462_7xzia_v1",
+      "snapshotHash": "a4c4e67a41c1ae2ca9b94ae5579d4acfbc976106531dda27006e8686fdfb8b69"
+    }
+  },
+  {
+    "id": "cpa_1789066173463_b6069d",
+    "timestamp": "2026-09-10T18:49:33.463Z",
+    "competitionId": "comp_1789066173462_7xzia",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Approval Idempotency Draft' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173463_c43c79",
+    "timestamp": "2026-09-10T18:49:33.463Z",
+    "competitionId": "comp_1789066173462_7xzia",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173462_36df72",
+    "timestamp": "2026-09-10T18:49:33.462Z",
+    "competitionId": "comp_1789066173462_7xzia",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Approval Idempotency Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173462_ee4671",
+    "timestamp": "2026-09-10T18:49:33.462Z",
+    "competitionId": "comp_1789066173461_m0a9l",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Idempotency Draft Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173462_d97d89",
+    "timestamp": "2026-09-10T18:49:33.462Z",
+    "competitionId": "comp_1789066173461_m0a9l",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173461_354ea0",
+    "timestamp": "2026-09-10T18:49:33.461Z",
+    "competitionId": "comp_1789066173461_m0a9l",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Idempotency Draft Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173461_6e434c",
+    "timestamp": "2026-09-10T18:49:33.461Z",
+    "competitionId": "comp_1789066173461_w3jjc",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'DRAFT' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789066173461_dc7762",
+    "timestamp": "2026-09-10T18:49:33.461Z",
+    "competitionId": "comp_1789066173461_w3jjc",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Unapproved Draft' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173460_6aaabd",
+    "timestamp": "2026-09-10T18:49:33.460Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "COMPETITION_PUBLISHED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "ADMIN_APPROVED",
+    "newStatus": "PUBLISHED",
+    "details": "Competition 'Premier League Matchweek 3 Official' successfully published and is now open/joinable based on approved snapshot snap_comp_1789066173449_vcmw8_v1."
+  },
+  {
+    "id": "cpa_1789066173459_869824",
+    "timestamp": "2026-09-10T18:49:33.459Z",
+    "competitionId": "comp_1789066173458_2pf9v",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "details": "Direct publish blocked: Competition is in 'ADMIN_REJECTED' state, not 'ADMIN_APPROVED'."
+  },
+  {
+    "id": "cpa_1789066173459_f6e3ea",
+    "timestamp": "2026-09-10T18:49:33.459Z",
+    "competitionId": "comp_1789066173458_2pf9v",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Rejected by compliance.",
+    "details": "Competition 'Rejected Comp Join Test' rejected by Admin Admin Verifier. Reason: Rejected by compliance."
+  },
+  {
+    "id": "cpa_1789066173459_6370bc",
+    "timestamp": "2026-09-10T18:49:33.459Z",
+    "competitionId": "comp_1789066173458_2pf9v",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Rejected Comp Join Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173458_a3e37f",
+    "timestamp": "2026-09-10T18:49:33.458Z",
+    "competitionId": "comp_1789066173458_2pf9v",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173458_4ccabd",
+    "timestamp": "2026-09-10T18:49:33.458Z",
+    "competitionId": "comp_1789066173458_2pf9v",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Rejected Comp Join Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173458_898c39",
+    "timestamp": "2026-09-10T18:49:33.458Z",
+    "competitionId": "comp_1789066173457_sis57",
+    "action": "CHANGES_REQUESTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "CHANGES_REQUESTED",
+    "reason": "Please adjust description.",
+    "details": "Admin Admin Verifier requested changes for competition 'Premier League MW3 Changes Test'. Details: Please adjust description."
+  },
+  {
+    "id": "cpa_1789066173457_7d26c0",
+    "timestamp": "2026-09-10T18:49:33.457Z",
+    "competitionId": "comp_1789066173457_sis57",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Changes Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173457_a7e39e",
+    "timestamp": "2026-09-10T18:49:33.457Z",
+    "competitionId": "comp_1789066173457_sis57",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173457_d5b9f6",
+    "timestamp": "2026-09-10T18:49:33.457Z",
+    "competitionId": "comp_1789066173457_sis57",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Changes Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173456_bc542e",
+    "timestamp": "2026-09-10T18:49:33.456Z",
+    "competitionId": "comp_1789066173455_pwisx",
+    "action": "ADMIN_REJECTED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_REJECTED",
+    "reason": "Schedule conflict with broadcast rights.",
+    "details": "Competition 'Premier League MW3 Reject Test' rejected by Admin Admin Verifier. Reason: Schedule conflict with broadcast rights."
+  },
+  {
+    "id": "cpa_1789066173456_3fd541",
+    "timestamp": "2026-09-10T18:49:33.456Z",
+    "competitionId": "comp_1789066173455_pwisx",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League MW3 Reject Test' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173456_4efd97",
+    "timestamp": "2026-09-10T18:49:33.456Z",
+    "competitionId": "comp_1789066173455_pwisx",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173455_7fcdb7",
+    "timestamp": "2026-09-10T18:49:33.455Z",
+    "competitionId": "comp_1789066173455_pwisx",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League MW3 Reject Test' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066173455_76190b",
+    "timestamp": "2026-09-10T18:49:33.455Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "ADMIN_APPROVED",
+    "actorId": "usr_adm_test_01",
+    "actorName": "Admin Verifier",
+    "actorRole": "ADMIN",
+    "previousStatus": "PENDING_ADMIN_APPROVAL",
+    "newStatus": "ADMIN_APPROVED",
+    "details": "Competition 'Premier League Matchweek 3 Official' verified and approved by Admin Admin Verifier. Immutable snapshot snap_comp_1789066173449_vcmw8_v1 created (Hash: dc7e976f599a).",
+    "metadata": {
+      "snapshotId": "snap_comp_1789066173449_vcmw8_v1",
+      "snapshotHash": "dc7e976f599a16213f6e3b6c17248a0a40fa3510f611e4b7ee50b6dfa65f40dd"
+    }
+  },
+  {
+    "id": "cpa_1789066173454_e9072a",
+    "timestamp": "2026-09-10T18:49:33.454Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066173449_vcmw8. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066173454_ce46d9",
+    "timestamp": "2026-09-10T18:49:33.454Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1789066173453_1e4dce",
+    "timestamp": "2026-09-10T18:49:33.453Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066173449_vcmw8. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066173453_326e1e",
+    "timestamp": "2026-09-10T18:49:33.453Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "SUBMITTED_FOR_APPROVAL",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Competition 'Premier League Matchweek 3 Official' submitted for Layer 2 Admin Verification."
+  },
+  {
+    "id": "cpa_1789066173452_edb0ae",
+    "timestamp": "2026-09-10T18:49:33.452Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "PENDING_ADMIN_APPROVAL",
+    "details": "Layer 1 validation PASSED (10 fixtures validated).",
+    "metadata": {
+      "errors": []
+    }
+  },
+  {
+    "id": "cpa_1789066173449_e034f1",
+    "timestamp": "2026-09-10T18:49:33.450Z",
+    "competitionId": "comp_1789066173449_vcmw8",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  },
+  {
+    "id": "cpa_1789066148173_3a88e6",
+    "timestamp": "2026-09-10T18:49:08.173Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_player_test_01",
+    "actorName": "Player One",
+    "actorRole": "PLAYER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066148168_oo3j0. Role 'PLAYER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066148173_d3a73a",
+    "timestamp": "2026-09-10T18:49:08.173Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "DIRECT_PUBLISH_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Direct publish attempt blocked for role 'COMPETITION_PUBLISHER'. Only Admin or Super Admin can publish approved competitions."
+  },
+  {
+    "id": "cpa_1789066148173_efa449",
+    "timestamp": "2026-09-10T18:49:08.173Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "UNAUTHORIZED_ACCESS_BLOCKED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "details": "Unauthorized user attempted Admin Review on competition comp_1789066148168_oo3j0. Role 'COMPETITION_PUBLISHER' is forbidden."
+  },
+  {
+    "id": "cpa_1789066148171_b0db5c",
+    "timestamp": "2026-09-10T18:49:08.171Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "VALIDATION_FAILED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "VALIDATION_FAILED",
+    "details": "Submission hard blocked due to validation failures: Invalid prize distribution. First place must receive 55% of prize pool.."
+  },
+  {
+    "id": "cpa_1789066148171_d260fe",
+    "timestamp": "2026-09-10T18:49:08.171Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "VALIDATION_RUN",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "previousStatus": "DRAFT",
+    "newStatus": "VALIDATION_FAILED",
+    "details": "Layer 1 validation FAILED with 1 error(s): INVALID_COMPETITION_RULES.",
+    "metadata": {
+      "errors": [
+        {
+          "code": "INVALID_COMPETITION_RULES",
+          "message": "Invalid prize distribution. First place must receive 55% of prize pool.",
+          "expected": 0.55,
+          "actual": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "cpa_1789066148168_6f7eba",
+    "timestamp": "2026-09-10T18:49:08.168Z",
+    "competitionId": "comp_1789066148168_oo3j0",
+    "action": "DRAFT_CREATED",
+    "actorId": "usr_pub_test_01",
+    "actorName": "Publisher One",
+    "actorRole": "COMPETITION_PUBLISHER",
+    "newStatus": "DRAFT",
+    "details": "Competition draft 'Premier League Matchweek 3 Official' created by Publisher One (COMPETITION_PUBLISHER)."
+  }
+]

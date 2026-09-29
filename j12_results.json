@@ -1,0 +1,61 @@
+{
+  "/api/admin/stage-j2/test-suite": {
+    "success": true,
+    "passed": 25,
+    "total": 25,
+    "fails": []
+  },
+  "/api/admin/stage-j3a/test-suite": {
+    "success": true,
+    "passed": 25,
+    "total": 25,
+    "fails": []
+  },
+  "/api/admin/stage-j3b/test-suite": {
+    "success": true,
+    "passed": 31,
+    "total": 31,
+    "fails": []
+  },
+  "/api/admin/stage-j3c/test-suite": {
+    "success": true,
+    "passed": 30,
+    "total": 30,
+    "fails": []
+  },
+  "/api/admin/tests/stage-j3d": {
+    "success": true,
+    "passed": 3,
+    "total": 3,
+    "fails": []
+  },
+  "/api/admin/tests/stage-j4": {
+    "success": true,
+    "passed": 20,
+    "total": 20,
+    "fails": []
+  },
+  "/api/admin/tests/stage-j6": {
+    "success": true,
+    "passed": 30,
+    "total": 30,
+    "fails": []
+  },
+  "/api/admin/tests/stage-j6-hotfix": {
+    "success": true,
+    "passed": 20,
+    "total": 20,
+    "fails": []
+  },
+  "/api/admin/tests/stage-j6-hotfix-i": {
+    "success": true,
+    "passed": 30,
+    "total": 30,
+    "fails": []
+  },
+  "/api/admin/tests/stage-final-a": {
+    "passed": true,
+    "total": 12,
+    "fails": []
+  }
+}

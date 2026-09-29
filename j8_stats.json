@@ -1,0 +1,27 @@
+{
+  "requests": 5,
+  "failed": 0,
+  "rateLimited": 0,
+  "leagues": {
+    "PD": {
+      "count": 380,
+      "status": "PASS"
+    },
+    "SA": {
+      "count": 380,
+      "status": "PASS"
+    },
+    "BL1": {
+      "count": 306,
+      "status": "PASS"
+    },
+    "FL1": {
+      "count": 306,
+      "status": "PASS"
+    },
+    "CL": {
+      "count": 144,
+      "status": "PASS"
+    }
+  }
+}

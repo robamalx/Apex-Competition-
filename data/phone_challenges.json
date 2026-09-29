@@ -1,0 +1,22 @@
+{
+  "pvc_1789063765375_32aae9e13fd8": {
+    "challengeId": "pvc_1789063765375_32aae9e13fd8",
+    "userId": "multi_inst_user_1",
+    "rawPhone": "0911776655",
+    "canonicalPhone": "+251911776655",
+    "maskedPhone": "+251 91 ****655",
+    "channel": "SMS",
+    "providerId": "provider-mock-verification",
+    "otpHash": "576e8ffd37ca5c73b5f8183541d9fc0215974623211192b0f77d79011ae57e2e",
+    "salt": "15bed99d49816d7fd16798cd82baf1af",
+    "status": "VERIFIED",
+    "attempts": 2,
+    "maxAttempts": 5,
+    "resendCount": 0,
+    "createdAt": "2026-09-10T18:09:25.375Z",
+    "expiresAt": "2026-09-10T18:14:25.375Z",
+    "deliveryProviderRef": "mock_ref_1789063765376",
+    "lastAttemptAt": "2026-09-10T18:09:25.381Z",
+    "verifiedAt": "2026-09-10T18:09:25.381Z"
+  }
+}

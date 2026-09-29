@@ -1,0 +1,12 @@
+{
+  "rate:user:multi_inst_user_1": {
+    "key": "rate:user:multi_inst_user_1",
+    "type": "USER",
+    "requestTimestamps": [
+      1789063765376
+    ],
+    "failedAttempts": 0,
+    "lockedUntil": 0,
+    "cooldownUntil": 0
+  }
+}
