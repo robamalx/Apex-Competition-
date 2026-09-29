@@ -24,6 +24,8 @@
     "noEmit": true
   },
   "include": [
-    "src"
+    "src",
+    "server.ts",
+    "api"
   ]
 }

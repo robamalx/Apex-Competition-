@@ -30,7 +30,7 @@ import { useAuth } from '../context/AuthContext';
 interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  openAuthModal: (mode: 'login' | 'register') => void;
+  openAuthModal: (mode: 'login' | 'register' | 'forgot_password') => void;
   onOpenDeposit?: () => void;
   onSearchChange?: (query: string) => void;
 }

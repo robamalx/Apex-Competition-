@@ -67,7 +67,7 @@ function MainAppContent() {
 
   // Auth Modal State
   const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
-  const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
+  const [authMode, setAuthMode] = useState<'login' | 'register' | 'forgot_password'>('login');
   const [authRefCode, setAuthRefCode] = useState<string>('');
 
   // Check query params for tab, competition, or referral URL e.g. /?tab=competitions or /register?ref=REF123
@@ -89,7 +89,7 @@ function MainAppContent() {
     }
   }, []);
 
-  const openAuthModal = (mode: 'login' | 'register') => {
+  const openAuthModal = (mode: 'login' | 'register' | 'forgot_password') => {
     setAuthMode(mode);
     setAuthModalOpen(true);
   };

@@ -172,9 +172,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ identifier, password })
       });
-      const data = await res.json();
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        const text = await res.text().catch(() => '');
+        console.error(`[Auth] Non-JSON login response received (${res.status}):`, text.substring(0, 150));
+        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+      }
+      let data: any;
+      try {
+        data = await res.json();
+      } catch (jsonErr) {
+        console.error('[Auth] JSON parse error during login:', jsonErr);
+        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+      }
       if (!res.ok) {
-        return { success: false, error: data.error || 'Login failed' };
+        return { success: false, error: data?.error || 'Login failed' };
       }
       localStorage.setItem('apex_token', data.token);
       setToken(data.token);
@@ -182,7 +194,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       fetchNotifications(data.token);
       return { success: true };
     } catch (err: any) {
-      return { success: false, error: err.message || 'Network error' };
+      console.error('[Auth] Network/Login error:', err);
+      return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
     }
   };
 
@@ -193,9 +206,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      const data = await res.json();
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        const text = await res.text().catch(() => '');
+        console.error(`[Auth] Non-JSON register response received (${res.status}):`, text.substring(0, 150));
+        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+      }
+      let data: any;
+      try {
+        data = await res.json();
+      } catch (jsonErr) {
+        console.error('[Auth] JSON parse error during register:', jsonErr);
+        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+      }
       if (!res.ok) {
-        return { success: false, error: data.error || 'Registration failed' };
+        return { success: false, error: data?.error || 'Registration failed' };
       }
       localStorage.setItem('apex_token', data.token);
       setToken(data.token);
@@ -203,7 +228,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       fetchNotifications(data.token);
       return { success: true };
     } catch (err: any) {
-      return { success: false, error: err.message || 'Network error' };
+      console.error('[Auth] Network/Register error:', err);
+      return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
     }
   };
 

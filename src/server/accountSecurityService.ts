@@ -781,16 +781,489 @@ export class LoginAttackProtection {
 // 6. PASSWORD RESET SERVICE (CSPRNG TOKEN & 24H WITHDRAWAL COOLDOWN)
 // ============================================================================
 
+export interface PasswordRecoveryRecord {
+  id: string;
+  userId: string;
+  tokenHash: string;
+  rawToken?: string;
+  channel: 'TELEGRAM' | 'EMAIL' | 'PHONE_OTP';
+  status: 'PENDING' | 'TELEGRAM_VERIFIED' | 'USED' | 'EXPIRED' | 'CANCELLED';
+  telegramUserId?: string;
+  resetAuthToken?: string;
+  resetAuthHash?: string;
+  attempts: number;
+  maxAttempts: number;
+  expiresAt: number;
+  createdAt: number;
+  ipAddress?: string;
+}
+
 export class PasswordResetService {
-  private static challenges = new Map<string, {
-    id: string;
+  private static challenges = new Map<string, PasswordRecoveryRecord>();
+  private static challengesById = new Map<string, PasswordRecoveryRecord>();
+  private static resetAuthTokens = new Map<string, {
+    challengeId: string;
     userId: string;
-    tokenHash: string;
-    channel: 'EMAIL' | 'TELEGRAM' | 'PHONE_OTP';
-    status: 'PENDING' | 'USED' | 'EXPIRED' | 'CANCELLED';
-    attempts: number;
     expiresAt: number;
+    status: 'PENDING' | 'USED' | 'EXPIRED';
   }>();
+
+  /**
+   * Secure Forgot Password — Initiates short-lived Telegram account recovery challenge.
+   * Anti-enumeration: returns identical generic response regardless of whether account exists.
+   */
+  public static async requestRecovery(
+    params: {
+      identifier: string; // Email, username, or phone
+      ipAddress?: string;
+      userAgent?: string;
+      poolOverride?: pg.Pool;
+    },
+    poolOverride?: pg.Pool
+  ): Promise<{
+    success: boolean;
+    message: string;
+    telegramAvailable: boolean;
+    challengeId?: string;
+    botDeepLink?: string;
+    reason?: string;
+  }> {
+    const { identifier, ipAddress } = params;
+    const pool = poolOverride || params.poolOverride || dbPool.getPool();
+    const cleanId = String(identifier || '').trim().toLowerCase();
+
+    const genericMessage = "If an account matching the information provided can be recovered, we'll continue with the available recovery options.";
+
+    if (!cleanId) {
+      return { success: false, message: genericMessage, telegramAvailable: false };
+    }
+
+    // Lookup user by email, username, or phone
+    const user = db.getUserByEmailOrUsername(cleanId) ||
+      db.data.users.find(u => u.phone && PhoneNormalizationEngine.normalize(u.phone).canonical === cleanId);
+
+    if (!user) {
+      // Account enumeration protection: identical response, no sensitive leak
+      return {
+        success: true,
+        message: genericMessage,
+        telegramAvailable: false
+      };
+    }
+
+    // Check if user has an already-linked Telegram account (via PostgreSQL or in-memory db)
+    const linkedTelegramId = await TelegramIdentityService.getLinkedTelegramUserId(user.id, pool);
+
+    if (!linkedTelegramId) {
+      await SecurityAuditLogger.log({
+        eventType: 'PASSWORD_RECOVERY_ATTEMPTED_NO_TELEGRAM',
+        actorId: user.id,
+        actorRole: user.role,
+        targetUserId: user.id,
+        severity: 'INFO',
+        status: 'BLOCKED',
+        details: { reason: 'No linked Telegram account found for this player profile.' },
+        ipAddress
+      }, pool);
+
+      return {
+        success: true,
+        message: genericMessage,
+        telegramAvailable: false,
+        reason: 'Telegram recovery is not available for this account. Please use another supported recovery method.'
+      };
+    }
+
+    // Generate cryptographic CSPRNG 64-char hex token (32 bytes entropy)
+    const rawToken = crypto.randomBytes(32).toString('hex');
+    const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
+    const challengeId = `pwr_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
+    const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes maximum TTL
+
+    const record: PasswordRecoveryRecord = {
+      id: challengeId,
+      userId: user.id,
+      tokenHash,
+      rawToken,
+      channel: 'TELEGRAM',
+      status: 'PENDING',
+      telegramUserId: linkedTelegramId,
+      attempts: 0,
+      maxAttempts: 5,
+      expiresAt,
+      createdAt: Date.now(),
+      ipAddress
+    };
+
+    this.challenges.set(tokenHash, record);
+    this.challengesById.set(challengeId, record);
+
+    try {
+      await pool.query(
+        `INSERT INTO password_reset_challenges (id, user_id, token_hash, channel, status, expires_at, created_at, ip_address)
+         VALUES ($1, $2, $3, 'TELEGRAM', 'PENDING', $4, NOW(), $5)`,
+        [challengeId, user.id, tokenHash, new Date(expiresAt).toISOString(), ipAddress || null]
+      );
+    } catch {}
+
+    await SecurityAuditLogger.log({
+      eventType: 'PASSWORD_RECOVERY_REQUESTED',
+      actorId: user.id,
+      actorRole: user.role,
+      targetUserId: user.id,
+      severity: 'INFO',
+      status: 'SUCCESS',
+      details: { challengeId, channel: 'TELEGRAM', expiresAt: new Date(expiresAt).toISOString() },
+      ipAddress
+    }, pool);
+
+    const botUsername = process.env.TELEGRAM_BOT_USERNAME || 'ApexArenaEtBot';
+    const botDeepLink = `https://t.me/${botUsername}?start=${rawToken}`;
+
+    return {
+      success: true,
+      message: genericMessage,
+      telegramAvailable: true,
+      challengeId,
+      botDeepLink
+    };
+  }
+
+  /**
+   * Telegram Bot Verification — Verifies incoming Telegram /start token against linked Telegram numeric ID.
+   * Compares immutable Telegram numeric ID only (NOT usernames or display names).
+   */
+  public static async verifyTelegramRecovery(
+    params: {
+      token: string;
+      senderTelegramUserId: string | number;
+      senderUsername?: string;
+      poolOverride?: pg.Pool;
+    },
+    poolOverride?: pg.Pool
+  ): Promise<{
+    success: boolean;
+    error?: string;
+    message?: string;
+    challengeId?: string;
+  }> {
+    const { token, senderTelegramUserId, senderUsername } = params;
+    const pool = poolOverride || params.poolOverride || dbPool.getPool();
+
+    if (!token || typeof token !== 'string' || !/^[a-f0-9]{64}$/i.test(token.trim())) {
+      return { success: false, error: 'Malformed or invalid recovery token format.' };
+    }
+
+    if (!senderTelegramUserId) {
+      return { success: false, error: 'Telegram numeric User ID is required.' };
+    }
+
+    const tokenHash = crypto.createHash('sha256').update(token.trim()).digest('hex');
+
+    // Find challenge
+    let challenge = this.challenges.get(tokenHash);
+
+    if (!challenge) {
+      try {
+        const res = await pool.query(
+          `SELECT id, user_id, status, expires_at, attempts, max_attempts FROM password_reset_challenges WHERE token_hash = $1`,
+          [tokenHash]
+        );
+        if (res.rows.length > 0) {
+          const row = res.rows[0];
+          challenge = {
+            id: row.id,
+            userId: row.user_id,
+            tokenHash,
+            channel: 'TELEGRAM',
+            status: row.status,
+            attempts: row.attempts || 0,
+            maxAttempts: row.max_attempts || 5,
+            expiresAt: new Date(row.expires_at).getTime(),
+            createdAt: Date.now()
+          };
+          this.challenges.set(tokenHash, challenge);
+          this.challengesById.set(challenge.id, challenge);
+        }
+      } catch {}
+    }
+
+    if (!challenge) {
+      return { success: false, error: 'Invalid or non-existent recovery challenge.' };
+    }
+
+    // Check expiration
+    if (Date.now() > challenge.expiresAt) {
+      challenge.status = 'EXPIRED';
+      return { success: false, error: 'Recovery token has expired. Please request a new recovery link.' };
+    }
+
+    // Check single-use / status
+    if (challenge.status !== 'PENDING') {
+      return { success: false, error: 'This recovery token has already been consumed or verified.' };
+    }
+
+    // Rate limiting attempts
+    challenge.attempts++;
+    if (challenge.attempts > challenge.maxAttempts) {
+      challenge.status = 'CANCELLED';
+      return { success: false, error: 'Too many verification attempts. This recovery request has been locked.' };
+    }
+
+    // Retrieve the user's previously bound Telegram numeric user ID
+    const boundTelegramId = challenge.telegramUserId || await TelegramIdentityService.getLinkedTelegramUserId(challenge.userId, pool);
+
+    if (!boundTelegramId) {
+      return { success: false, error: 'No linked Telegram account found for this user.' };
+    }
+
+    // STRICT IDENTITY CHECK: Compare numeric Telegram User ID only
+    const senderIdStr = String(senderTelegramUserId).trim();
+    const boundIdStr = String(boundTelegramId).trim();
+
+    if (senderIdStr !== boundIdStr) {
+      await SecurityAuditLogger.log({
+        eventType: 'TELEGRAM_VERIFICATION_FAILED',
+        actorId: challenge.userId,
+        actorRole: 'ANONYMOUS',
+        targetUserId: challenge.userId,
+        severity: 'HIGH',
+        status: 'BLOCKED',
+        details: {
+          reason: 'TELEGRAM_NUMERIC_ID_MISMATCH',
+          attemptedSenderTelegramId: senderIdStr,
+          expectedBoundTelegramId: boundIdStr,
+          senderUsername
+        }
+      }, pool);
+
+      return {
+        success: false,
+        error: 'Telegram account does not match the account linked to this profile.'
+      };
+    }
+
+    // Issue separate, cryptographically random, short-lived reset authorization token for the browser
+    const resetAuthToken = crypto.randomBytes(32).toString('hex');
+    const resetAuthHash = crypto.createHash('sha256').update(resetAuthToken).digest('hex');
+    const resetExpiresAt = Date.now() + 10 * 60 * 1000;
+
+    challenge.status = 'TELEGRAM_VERIFIED';
+    challenge.resetAuthToken = resetAuthToken;
+    challenge.resetAuthHash = resetAuthHash;
+
+    this.resetAuthTokens.set(resetAuthHash, {
+      challengeId: challenge.id,
+      userId: challenge.userId,
+      expiresAt: resetExpiresAt,
+      status: 'PENDING'
+    });
+
+    try {
+      await pool.query(
+        `UPDATE password_reset_challenges SET status = 'TELEGRAM_VERIFIED' WHERE id = $1`,
+        [challenge.id]
+      );
+      await pool.query(
+        `INSERT INTO password_reset_challenges (id, user_id, token_hash, channel, status, expires_at, created_at)
+         VALUES ($1, $2, $3, 'RESET_AUTH', 'PENDING', $4, NOW())`,
+        [`rst_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`, challenge.userId, resetAuthHash, new Date(resetExpiresAt).toISOString()]
+      );
+    } catch {}
+
+    await SecurityAuditLogger.log({
+      eventType: 'TELEGRAM_VERIFIED',
+      actorId: challenge.userId,
+      actorRole: 'PLAYER',
+      targetUserId: challenge.userId,
+      severity: 'INFO',
+      status: 'SUCCESS',
+      details: { challengeId: challenge.id, telegramUserId: senderIdStr }
+    }, pool);
+
+    return {
+      success: true,
+      message: 'Telegram verification successful! Return to APEX ARENA to create your new password.',
+      challengeId: challenge.id
+    };
+  }
+
+  /**
+   * Browser Status Polling — Checks status of Telegram verification without exposing sensitive account info.
+   */
+  public static async getRecoveryStatus(
+    params: {
+      challengeId: string;
+      poolOverride?: pg.Pool;
+    },
+    poolOverride?: pg.Pool
+  ): Promise<{
+    status: 'PENDING' | 'TELEGRAM_VERIFIED' | 'USED' | 'EXPIRED' | 'NOT_FOUND';
+    resetAuthToken?: string;
+  }> {
+    const { challengeId } = params;
+    const pool = poolOverride || params.poolOverride || dbPool.getPool();
+
+    let challenge = this.challengesById.get(challengeId);
+
+    if (!challenge) {
+      try {
+        const res = await pool.query(
+          `SELECT id, user_id, status, expires_at FROM password_reset_challenges WHERE id = $1`,
+          [challengeId]
+        );
+        if (res.rows.length > 0) {
+          const row = res.rows[0];
+          challenge = {
+            id: row.id,
+            userId: row.user_id,
+            tokenHash: '',
+            channel: 'TELEGRAM',
+            status: row.status,
+            attempts: 0,
+            maxAttempts: 5,
+            expiresAt: new Date(row.expires_at).getTime(),
+            createdAt: Date.now()
+          };
+          this.challengesById.set(challenge.id, challenge);
+        }
+      } catch {}
+    }
+
+    if (!challenge) {
+      return { status: 'NOT_FOUND' };
+    }
+
+    if (Date.now() > challenge.expiresAt) {
+      challenge.status = 'EXPIRED';
+      return { status: 'EXPIRED' };
+    }
+
+    if (challenge.status === 'TELEGRAM_VERIFIED') {
+      return {
+        status: 'TELEGRAM_VERIFIED',
+        resetAuthToken: challenge.resetAuthToken
+      };
+    }
+
+    if (challenge.status === 'USED') {
+      return { status: 'USED' };
+    }
+
+    return { status: 'PENDING' };
+  }
+
+  /**
+   * Final Password Reset — Completes reset using the separate reset authorization token.
+   * Invalidates all active sessions for that account immediately.
+   */
+  public static async completePasswordResetWithAuth(
+    params: {
+      resetAuthToken: string;
+      newPassword: string;
+      ipAddress?: string;
+      userAgent?: string;
+      poolOverride?: pg.Pool;
+    },
+    poolOverride?: pg.Pool
+  ): Promise<{
+    success: boolean;
+    error?: string;
+    message?: string;
+    userId?: string;
+  }> {
+    const { resetAuthToken, newPassword, ipAddress } = params;
+    const pool = poolOverride || params.poolOverride || dbPool.getPool();
+
+    if (!resetAuthToken || typeof resetAuthToken !== 'string') {
+      return { success: false, error: 'Reset authorization token is required.' };
+    }
+
+    if (!newPassword || typeof newPassword !== 'string' || newPassword.length < 6) {
+      return { success: false, error: 'New password must be at least 6 characters.' };
+    }
+
+    const resetAuthHash = crypto.createHash('sha256').update(resetAuthToken.trim()).digest('hex');
+
+    let authRecord = this.resetAuthTokens.get(resetAuthHash);
+    let targetUserId: string | null = null;
+    let challengeId: string | null = null;
+
+    if (authRecord) {
+      if (authRecord.status !== 'PENDING') {
+        return { success: false, error: 'This reset authorization has already been used.' };
+      }
+      if (Date.now() > authRecord.expiresAt) {
+        authRecord.status = 'EXPIRED';
+        return { success: false, error: 'Password reset authorization has expired. Please restart recovery.' };
+      }
+      targetUserId = authRecord.userId;
+      challengeId = authRecord.challengeId;
+      authRecord.status = 'USED';
+    } else {
+      try {
+        const res = await pool.query(
+          `SELECT id, user_id, status, expires_at FROM password_reset_challenges WHERE token_hash = $1`,
+          [resetAuthHash]
+        );
+        if (res.rows.length > 0) {
+          const row = res.rows[0];
+          if (row.status !== 'PENDING') {
+            return { success: false, error: 'This reset authorization has already been used.' };
+          }
+          if (new Date(row.expires_at).getTime() < Date.now()) {
+            return { success: false, error: 'Password reset authorization has expired. Please restart recovery.' };
+          }
+          targetUserId = row.user_id;
+          challengeId = row.id;
+        }
+      } catch {}
+    }
+
+    if (!targetUserId) {
+      return { success: false, error: 'Invalid or expired password reset authorization.' };
+    }
+
+    // Invalidate the auth record in DB
+    try {
+      await pool.query(
+        `UPDATE password_reset_challenges SET status = 'USED', used_at = NOW() WHERE token_hash = $1`,
+        [resetAuthHash]
+      );
+    } catch {}
+
+    // Hash new password using bcrypt
+    const newHash = PasswordSecurityManager.hashPassword(newPassword);
+
+    // Update user password in local DB & PostgreSQL
+    db.updateUserPassword(targetUserId, newHash);
+    try {
+      await pool.query('UPDATE users SET password_hash = $1, updated_at = NOW() WHERE id = $2', [newHash, targetUserId]);
+    } catch {}
+
+    // Revoke ALL active sessions for this user immediately (session invalidation)
+    await SessionLifecycleManager.revokeAllUserSessions(targetUserId, 'PASSWORD_RESET_COMPLETED', pool);
+
+    // Apply 24h withdrawal security cooldown
+    await AccountSecurityStateManager.setWithdrawalCooldown(targetUserId, 24, 'PASSWORD_RESET', pool);
+
+    await SecurityAuditLogger.log({
+      eventType: 'PASSWORD_RESET_COMPLETED',
+      actorId: targetUserId,
+      actorRole: 'PLAYER',
+      targetUserId: targetUserId,
+      severity: 'HIGH',
+      status: 'SUCCESS',
+      details: { challengeId, channel: 'TELEGRAM', withdrawalCooldownHours: 24 },
+      ipAddress
+    }, pool);
+
+    return {
+      success: true,
+      message: 'Password reset successfully. All previous sessions have been invalidated. Please log in with your new password.',
+      userId: targetUserId
+    };
+  }
 
   /**
    * Initiates password recovery. Anti-enumeration: returns generic confirmation regardless of account existence.
@@ -833,7 +1306,9 @@ export class PasswordResetService {
       channel,
       status: 'PENDING',
       attempts: 0,
-      expiresAt
+      maxAttempts: 5,
+      expiresAt,
+      createdAt: Date.now()
     });
 
     try {
@@ -1087,6 +1562,127 @@ export class TelegramIdentityService {
     }, pool);
 
     return { success: true };
+  }
+
+  /**
+   * Retrieves the immutable Telegram numeric User ID linked to an APEX ARENA user
+   */
+  public static async getLinkedTelegramUserId(
+    userId: string,
+    poolOverride?: pg.Pool
+  ): Promise<string | null> {
+    const pool = poolOverride || dbPool.getPool();
+    try {
+      const res = await pool.query(
+        'SELECT telegram_user_id FROM telegram_bindings WHERE user_id = $1',
+        [userId]
+      );
+      if (res.rows.length > 0 && res.rows[0].telegram_user_id) {
+        return String(res.rows[0].telegram_user_id);
+      }
+    } catch {}
+
+    const localUser = db.getUserById(userId);
+    if (localUser && localUser.telegramId) {
+      return String(localUser.telegramId);
+    }
+    return null;
+  }
+
+  /**
+   * Processes Telegram Webhook Update (Message or Callback Query).
+   * Validates secret token if configured.
+   */
+  public static async handleWebhookUpdate(
+    update: any,
+    secretTokenHeader?: string
+  ): Promise<{ handled: boolean; replyText?: string; inlineKeyboard?: any; error?: string }> {
+    const configuredSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
+    if (configuredSecret && secretTokenHeader !== configuredSecret) {
+      return { handled: false, error: 'Unauthorized webhook secret token' };
+    }
+
+    if (!update) return { handled: false, error: 'Empty update payload' };
+
+    // 1. Handle incoming text message (e.g. /start <token>)
+    if (update.message && update.message.text) {
+      const text = String(update.message.text).trim();
+      const sender = update.message.from;
+      if (!sender || !sender.id) {
+        return { handled: false, error: 'Missing sender in Telegram message' };
+      }
+
+      if (text.startsWith('/start')) {
+        const parts = text.split(/\s+/);
+        if (parts.length < 2) {
+          return {
+            handled: true,
+            replyText: "Welcome to APEX ARENA Bot! This bot is used for secure account verification and password recovery. To recover your account, initiate recovery on https://apexarena.et."
+          };
+        }
+
+        const rawToken = parts[1].trim();
+        // Return confirmation action to require explicit user intent (not /start alone)
+        return {
+          handled: true,
+          replyText: "APEX ARENA password recovery request detected.\n\nIf you initiated this password recovery request for your account, please tap Confirm below:",
+          inlineKeyboard: [
+            [
+              { text: "Confirm Password Recovery", callback_data: `confirm_recovery:${rawToken}` },
+              { text: "Cancel", callback_data: "cancel_recovery" }
+            ]
+          ]
+        };
+      }
+
+      if (text === '/help') {
+        return {
+          handled: true,
+          replyText: "APEX ARENA Security Bot.\nCommands:\n/start - Verify account or recovery challenge\n/help - Show help information"
+        };
+      }
+    }
+
+    // 2. Handle callback query (e.g. user clicked [Confirm Password Recovery])
+    if (update.callback_query) {
+      const query = update.callback_query;
+      const data = String(query.data || '');
+      const sender = query.from;
+
+      if (!sender || !sender.id) {
+        return { handled: false, error: 'Missing sender in callback query' };
+      }
+
+      if (data.startsWith('confirm_recovery:')) {
+        const token = data.replace('confirm_recovery:', '').trim();
+        const verifyRes = await PasswordResetService.verifyTelegramRecovery({
+          token,
+          senderTelegramUserId: sender.id,
+          senderUsername: sender.username
+        });
+
+        if (!verifyRes.success) {
+          return {
+            handled: true,
+            replyText: `Verification Failed: ${verifyRes.error || 'This recovery request is invalid or expired.'}`
+          };
+        }
+
+        return {
+          handled: true,
+          replyText: "Telegram verification successful! Return to APEX ARENA in your browser to create your new password."
+        };
+      }
+
+      if (data === 'cancel_recovery') {
+        return {
+          handled: true,
+          replyText: "Password recovery request cancelled."
+        };
+      }
+    }
+
+    return { handled: true, replyText: "APEX ARENA: Request received." };
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User as UserIcon, ShieldCheck, Gift, Phone, Mail, CheckCircle2, Copy, Check, Camera, Edit3, Save, AlertCircle, Plus, Wallet, Smartphone, RefreshCw, HelpCircle, Lock } from 'lucide-react';
+import { User as UserIcon, ShieldCheck, Gift, Phone, Mail, CheckCircle2, Copy, Check, Camera, Edit3, Save, AlertCircle, Plus, Wallet, Smartphone, RefreshCw, HelpCircle, Lock, Send, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { PhoneVerificationModal } from './PhoneVerificationModal';
 import { AccountRecoveryModal } from './AccountRecoveryModal';
@@ -38,6 +38,13 @@ export const UserProfileView: React.FC<UserProfileViewProps> = ({
   const [pwdLoading, setPwdLoading] = useState(false);
   const [pwdMessage, setPwdMessage] = useState('');
   const [pwdError, setPwdError] = useState('');
+
+  // Telegram Binding State
+  const [tgUserId, setTgUserId] = useState('');
+  const [tgUsername, setTgUsername] = useState('');
+  const [tgLoading, setTgLoading] = useState(false);
+  const [tgMessage, setTgMessage] = useState('');
+  const [tgError, setTgError] = useState('');
 
   if (!user) return null;
 
@@ -136,6 +143,76 @@ export const UserProfileView: React.FC<UserProfileViewProps> = ({
     } catch (err: any) {
       setPwdLoading(false);
       setPwdError('Network error changing password');
+    }
+  };
+
+  const handleBindTelegram = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setTgMessage('');
+    setTgError('');
+    if (!tgUserId.trim()) {
+      setTgError('Telegram numeric User ID is required.');
+      return;
+    }
+    setTgLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/telegram/bind', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          telegramUserId: tgUserId.trim(),
+          telegramUsername: tgUsername.trim() || undefined
+        })
+      });
+      const data = await res.json();
+      setTgLoading(false);
+
+      if (res.ok && data.success) {
+        setTgMessage('Telegram account bound successfully! Out-of-band recovery is now active.');
+        setTgUserId('');
+        setTgUsername('');
+        refreshUserData();
+      } else {
+        setTgError(data.error || 'Failed to bind Telegram account.');
+      }
+    } catch (err: any) {
+      setTgLoading(false);
+      setTgError(err.message || 'Network error binding Telegram account.');
+    }
+  };
+
+  const handleUnbindTelegram = async () => {
+    if (!confirm('Are you sure you want to unlink your Telegram account? You will lose out-of-band password recovery via Telegram.')) {
+      return;
+    }
+
+    setTgMessage('');
+    setTgError('');
+    setTgLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/telegram/unbind', {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const data = await res.json();
+      setTgLoading(false);
+
+      if (res.ok && data.success) {
+        setTgMessage('Telegram account unlinked.');
+        refreshUserData();
+      } else {
+        setTgError(data.error || 'Failed to unbind Telegram account.');
+      }
+    } catch (err: any) {
+      setTgLoading(false);
+      setTgError(err.message || 'Network error unbinding Telegram account.');
     }
   };
 
@@ -406,6 +483,143 @@ export const UserProfileView: React.FC<UserProfileViewProps> = ({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Telegram Identity Binding & Account Recovery Card (Risk 11) */}
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div className="flex items-center gap-2.5">
+            <div className={`p-2 rounded-xl border ${user.telegramId ? 'bg-sky-500/10 text-sky-400 border-sky-500/20' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+              <Send className="w-5 h-5 -mr-0.5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="font-extrabold text-sm text-white uppercase tracking-wider">
+                  Telegram Account Recovery
+                </h3>
+                <span
+                  className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider border ${
+                    user.telegramId
+                      ? 'bg-sky-500/20 text-sky-300 border-sky-500/30'
+                      : 'bg-slate-800 text-slate-400 border-slate-700'
+                  }`}
+                >
+                  {user.telegramId ? 'LINKED & PROTECTED' : 'NOT LINKED'}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Out-of-band verification via official @ApexArenaEtBot for instant, secure password recovery.
+              </p>
+            </div>
+          </div>
+
+          {user.telegramId && (
+            <button
+              type="button"
+              onClick={handleUnbindTelegram}
+              disabled={tgLoading}
+              className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-rose-500/20 hover:text-rose-300 hover:border-rose-500/40 text-slate-400 border border-slate-700 font-extrabold text-xs transition-colors"
+            >
+              {tgLoading ? 'Unlinking...' : 'Unlink Telegram'}
+            </button>
+          )}
+        </div>
+
+        {tgMessage && (
+          <div className="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4" />
+            {tgMessage}
+          </div>
+        )}
+
+        {tgError && (
+          <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs font-bold flex items-center gap-2">
+            <AlertCircle className="w-4 h-4" />
+            {tgError}
+          </div>
+        )}
+
+        {user.telegramId ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+              <span className="text-slate-400 font-bold block">Telegram Numeric ID (Immutable Anchor)</span>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-white font-bold">{user.telegramId}</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 font-mono">
+                  1-to-1 Bound
+                </span>
+              </div>
+            </div>
+
+            <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+              <span className="text-slate-400 font-bold block">Telegram Username</span>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-slate-300">
+                  {user.telegramUsername ? `@${user.telegramUsername}` : 'Not provided'}
+                </span>
+                <a
+                  href="https://t.me/ApexArenaEtBot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-semibold"
+                >
+                  <span>@ApexArenaEtBot</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleBindTelegram} className="space-y-3 pt-1">
+            <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-400 space-y-1">
+              <span className="font-bold text-slate-200 block">How to find your numeric Telegram ID:</span>
+              <p>
+                Open Telegram and message <strong className="text-sky-400">@userinfobot</strong> or start <strong className="text-sky-400">@ApexArenaEtBot</strong>. Copy the numeric User ID (e.g. 987654321).
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-300 mb-1">
+                  Telegram Numeric User ID <span className="text-rose-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. 987654321"
+                  value={tgUserId}
+                  onChange={e => setTgUserId(e.target.value.replace(/\D/g, ''))}
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-mono placeholder-slate-500 focus:outline-none focus:border-sky-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-300 mb-1">
+                  Telegram Username (Optional)
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-2.5 text-sm text-slate-500">@</span>
+                  <input
+                    type="text"
+                    placeholder="username"
+                    value={tgUsername}
+                    onChange={e => setTgUsername(e.target.value.replace(/^@/, ''))}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-8 pr-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={tgLoading}
+              className="w-full py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
+            >
+              <Send className="w-4 h-4" />
+              {tgLoading ? 'LINKING TELEGRAM ACCOUNT...' : 'LINK TELEGRAM FOR SECURE RECOVERY'}
+            </button>
+          </form>
+        )}
       </div>
 
       {/* Account Security Card */}

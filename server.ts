@@ -252,9 +252,30 @@ export function broadcastLiveEvent(eventData: any) {
   }
 }
 
+export const app = express();
+
+let initPromise: Promise<void> | null = null;
+
+export async function ensureInitialized(): Promise<void> {
+  if (initPromise) {
+    return initPromise;
+  }
+
+  initPromise = (async () => {
+    // Explicitly initialize database at application startup
+    db.init();
+
+    // Register real-time sync callback on API Football Service to broadcast live events
+    apiFootballService.registerSyncCallback((data) => {
+      broadcastLiveEvent(data);
+    });
+  })();
+
+  return initPromise;
+}
+
 async function startServer() {
-  // Explicitly initialize database at application startup
-  db.init();
+  await ensureInitialized();
 
   if (process.env.DATABASE_URL || process.env.NODE_ENV === 'production') {
     try {
@@ -269,12 +290,6 @@ async function startServer() {
     }
   }
 
-  // Register real-time sync callback on API Football Service to broadcast live events
-  apiFootballService.registerSyncCallback((data) => {
-    broadcastLiveEvent(data);
-  });
-
-  const app = express();
   const PORT = process.env.APEX_TEST_PORT ? parseInt(process.env.APEX_TEST_PORT, 10) : 3000;
 
   app.use(express.json());
@@ -1022,30 +1037,46 @@ async function startServer() {
     }
   });
 
-  // Auth: Forgot Password
-  app.post('/api/auth/forgot-password', (req, res) => {
+  // Rate limiting map for password recovery requests
+  const recoveryRateLimitMap = new Map<string, { count: number; resetAt: number }>();
+  const checkRecoveryRateLimit = (key: string, maxRequests: number = 5, windowMs: number = 15 * 60 * 1000): boolean => {
+    const now = Date.now();
+    const entry = recoveryRateLimitMap.get(key);
+    if (!entry || now > entry.resetAt) {
+      recoveryRateLimitMap.set(key, { count: 1, resetAt: now + windowMs });
+      return true;
+    }
+    if (entry.count >= maxRequests) {
+      return false;
+    }
+    entry.count++;
+    return true;
+  };
+
+  // Auth: Forgot Password (Secure Telegram-Assisted Account Recovery)
+  app.post('/api/auth/forgot-password', async (req, res) => {
     try {
-      const { email } = req.body;
-      if (!email) {
-        return res.status(400).json({ error: 'Email is required' });
+      const { email, identifier } = req.body;
+      const targetIdentifier = String(identifier || email || '').trim();
+      if (!targetIdentifier) {
+        return res.status(400).json({ error: 'Email, username, or phone is required' });
       }
-      const cleanEmail = String(email).trim().toLowerCase();
-      const user = db.getUserByEmailOrUsername(cleanEmail);
-      let resetToken = '';
-      if (user) {
-        resetToken = crypto.randomBytes(32).toString('hex');
-        passwordResetTokens.set(resetToken, {
-          userId: user.id,
-          expiresAt: Date.now() + 15 * 60 * 1000
-        });
+
+      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const rateLimitKey = `recovery_req_${clientIp}_${targetIdentifier.toLowerCase()}`;
+      if (!checkRecoveryRateLimit(rateLimitKey, 5, 15 * 60 * 1000)) {
+        return res.status(429).json({ error: 'Too many recovery requests. Please wait a few minutes before trying again.' });
       }
-      const isProduction = process.env.NODE_ENV === 'production';
-      res.json({
-        message: 'If an account with that email exists, a password reset token has been issued.',
-        ...(isProduction ? {} : { resetToken: resetToken || undefined })
+
+      const result = await PasswordResetService.requestRecovery({
+        identifier: targetIdentifier,
+        ipAddress: clientIp,
+        userAgent: req.headers['user-agent'] as string
       });
+
+      res.json(result);
     } catch (err: any) {
-      res.status(500).json({ error: 'Password reset request failed' });
+      res.status(500).json({ error: 'Password recovery request failed' });
     }
   });
 
@@ -1438,6 +1469,119 @@ async function startServer() {
       res.json(result);
     } catch (err: any) {
       res.status(500).json({ error: err.message || 'Password reset completion failed' });
+    }
+  });
+
+  // 5A. Secure Password Recovery Request (Telegram Out-of-Band Factor)
+  app.post('/api/auth/password-recovery/request', async (req, res) => {
+    try {
+      const { identifier } = req.body;
+      if (!identifier || typeof identifier !== 'string') {
+        return res.status(400).json({ error: 'Identifier (email, username, or phone) is required' });
+      }
+
+      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const rateLimitKey = `recovery_req_${clientIp}_${String(identifier).trim().toLowerCase()}`;
+      if (!checkRecoveryRateLimit(rateLimitKey, 5, 15 * 60 * 1000)) {
+        return res.status(429).json({ error: 'Too many recovery requests. Please wait a few minutes before trying again.' });
+      }
+
+      const result = await PasswordResetService.requestRecovery({
+        identifier: String(identifier).trim(),
+        ipAddress: clientIp,
+        userAgent: req.headers['user-agent'] as string
+      });
+
+      res.json(result);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Password recovery request failed' });
+    }
+  });
+
+  // 5B. Check Recovery Status (Browser Polling)
+  app.get('/api/auth/password-recovery/status', async (req, res) => {
+    try {
+      const { challengeId } = req.query;
+      if (!challengeId || typeof challengeId !== 'string') {
+        return res.status(400).json({ error: 'challengeId query parameter is required' });
+      }
+
+      const result = await PasswordResetService.getRecoveryStatus({
+        challengeId: String(challengeId).trim()
+      });
+
+      res.json(result);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Failed to check recovery status' });
+    }
+  });
+
+  // 5C. Telegram Bot Confirmation (Direct/Bot Action)
+  app.post('/api/auth/password-recovery/telegram/confirm', async (req, res) => {
+    try {
+      const { token, telegramUserId } = req.body;
+      if (!token || !telegramUserId) {
+        return res.status(400).json({ error: 'Recovery token and telegramUserId are required' });
+      }
+
+      const result = await PasswordResetService.verifyTelegramRecovery({
+        token: String(token).trim(),
+        senderTelegramUserId: String(telegramUserId).trim()
+      });
+
+      if (!result.success) {
+        return res.status(400).json({ error: result.error });
+      }
+
+      res.json(result);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Telegram recovery verification failed' });
+    }
+  });
+
+  // 5D. Complete Password Reset (Using Reset Authorization Token)
+  app.post('/api/auth/password-recovery/reset', async (req, res) => {
+    try {
+      const { resetAuthToken, newPassword } = req.body;
+      if (!resetAuthToken || !newPassword) {
+        return res.status(400).json({ error: 'Reset authorization token and new password are required' });
+      }
+
+      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const result = await PasswordResetService.completePasswordResetWithAuth({
+        resetAuthToken: String(resetAuthToken).trim(),
+        newPassword: String(newPassword),
+        ipAddress: clientIp,
+        userAgent: req.headers['user-agent'] as string
+      });
+
+      if (!result.success) {
+        return res.status(400).json({ error: result.error });
+      }
+
+      if (result.userId) {
+        invalidateAllUserSessions(result.userId, 'PASSWORD_RESET');
+      }
+
+      res.json(result);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Password reset failed' });
+    }
+  });
+
+  // 5E. Telegram Webhook Endpoint
+  app.post('/api/auth/telegram/webhook', async (req, res) => {
+    try {
+      const secretHeader = req.headers['x-telegram-bot-api-secret-token'] as string | undefined;
+      const result = await TelegramIdentityService.handleWebhookUpdate(req.body, secretHeader);
+
+      if (!result.handled && result.error === 'Unauthorized webhook secret token') {
+        return res.status(403).json({ error: 'Unauthorized secret token' });
+      }
+
+      res.json({ ok: true, ...result });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Webhook processing failed' });
     }
   });
 
@@ -10359,7 +10503,9 @@ function sanitizeCompForPlayer(comp: any, isAdmin: boolean) {
   process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 }
 
-startServer().catch(err => {
-  console.error("Failed to start server:", err);
-  process.exit(1);
-});
+if (!process.env.VERCEL) {
+  startServer().catch(err => {
+    console.error("Failed to start server:", err);
+    process.exit(1);
+  });
+}
