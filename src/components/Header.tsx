@@ -499,14 +499,14 @@ export const Header: React.FC<HeaderProps> = ({
                 /* Unauthenticated Controls */
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <SignInButton mode="modal">
-                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors">
+                    <span role="button" className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer">
                       Log In
-                    </button>
+                    </span>
                   </SignInButton>
                   <SignUpButton mode="modal">
-                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20">
+                    <span role="button" className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer">
                       Register
-                    </button>
+                    </span>
                   </SignUpButton>
                 </div>
               )}
@@ -608,14 +608,14 @@ export const Header: React.FC<HeaderProps> = ({
                   <p className="text-xs text-slate-300 font-medium">Join football prediction competitions today!</p>
                   <div className="flex gap-2">
                     <SignInButton mode="modal">
-                      <button className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700">
+                      <span role="button" className="flex-1 block py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700 text-center cursor-pointer">
                         Log In
-                      </button>
+                      </span>
                     </SignInButton>
                     <SignUpButton mode="modal">
-                      <button className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400">
+                      <span role="button" className="flex-1 block py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400 text-center cursor-pointer">
                         Register
-                      </button>
+                      </span>
                     </SignUpButton>
                   </div>
                 </div>
