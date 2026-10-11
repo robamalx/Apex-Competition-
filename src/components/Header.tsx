@@ -25,7 +25,9 @@ import {
   Megaphone,
   HelpCircle
 } from 'lucide-react';
+import { useUser } from '@clerk/nextjs';
 import { useAuth } from '../context/AuthContext';
+import { AdminMenu } from './AdminMenu';
 
 interface HeaderProps {
   activeTab: string;
@@ -124,13 +126,17 @@ export const Header: React.FC<HeaderProps> = ({
   onSearchChange
 }) => {
   const { user, logout, theme, toggleTheme, notifications, unreadCount, markNotificationAsRead } = useAuth();
+  const { user: clerkUser } = useUser();
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const isStaff = isStaffRole(user?.role);
-  const roleNavItems = getNavigationForRole(user?.role);
+  const clerkRole = clerkUser?.publicMetadata?.role as string | undefined;
+  const isAdmin = clerkUser?.publicMetadata?.role === 'admin' || clerkRole === 'ADMIN' || user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN';
+  const activeRole = clerkRole || user?.role;
+  const isStaff = isAdmin || isStaffRole(activeRole);
+  const roleNavItems = getNavigationForRole(activeRole);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -184,6 +190,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Role-Specific Desktop Navigation Links */}
               <nav className="hidden lg:flex items-center gap-1 min-w-0">
+                {isAdmin && <AdminMenu onNavigate={navTo} />}
                 {isStaff ? (
                   /* Staff Navigation: Compact role-relevant items */
                   roleNavItems.map(item => {
@@ -640,6 +647,11 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Drawer Links List */}
               <div className="space-y-1 text-sm font-medium">
+                {isAdmin && (
+                  <div className="mb-2">
+                    <AdminMenu onNavigate={navTo} />
+                  </div>
+                )}
                 {isStaff ? (
                   /* Staff Role-Specific Navigation Links */
                   <>
