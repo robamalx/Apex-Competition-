@@ -220,6 +220,25 @@ function saveSessionsToDisk(map: Map<string, SessionData>): void {
   }
 }
 
+export function getClientIp(req: any): string {
+  try {
+    const xForwardedFor = req.headers?.['x-forwarded-for'];
+    if (typeof xForwardedFor === 'string') {
+      const first = xForwardedFor.split(',')[0].trim();
+      if (first) return first;
+    }
+    if (req.socket?.remoteAddress) {
+      return req.socket.remoteAddress;
+    }
+    if (req.connection?.remoteAddress) {
+      return req.connection.remoteAddress;
+    }
+    return '127.0.0.1';
+  } catch {
+    return '127.0.0.1';
+  }
+}
+
 // =========================================================================
 // STAGE 11 LIVE SSE BROADCASTER FOR PAYMENT VERIFIERS & REAL-TIME UPDATES
 // =========================================================================
@@ -254,9 +273,26 @@ export function broadcastLiveEvent(eventData: any) {
 
 export const app = express();
 
+// Token session map with creation timestamp & 24h expiration
+export const sessionMap = new Map<string, SessionData>();
+loadSessionsFromDisk(sessionMap);
+
+// Failed login rate limiting map
+export const failedLoginMap = new Map<string, { attempts: number; lockedUntil: number }>();
+
+// Password reset tokens
+export const passwordResetTokens = new Map<string, { userId: string; expiresAt: number }>();
+
+// Email verification tokens
+export const emailVerifyTokens = new Map<string, { userId: string; expiresAt: number }>();
+
+let isAppConfigured = false;
 let initPromise: Promise<void> | null = null;
 
 export async function ensureInitialized(): Promise<void> {
+  if (isAppConfigured && initPromise) {
+    return initPromise;
+  }
   if (initPromise) {
     return initPromise;
   }
@@ -269,28 +305,21 @@ export async function ensureInitialized(): Promise<void> {
     apiFootballService.registerSyncCallback((data) => {
       broadcastLiveEvent(data);
     });
-  })();
+
+    // Register Express middleware and routes idempotently
+    registerAppMiddlewareAndRoutes();
+  })().catch(err => {
+    initPromise = null;
+    isAppConfigured = false;
+    throw err;
+  });
 
   return initPromise;
 }
 
-async function startServer() {
-  await ensureInitialized();
-
-  if (process.env.DATABASE_URL || process.env.NODE_ENV === 'production') {
-    try {
-      console.log('[PostgreSQL] Checking schema migrations on startup...');
-      const migResult = await DatabaseMigrator.runMigrations();
-      console.log(`[PostgreSQL] Applied ${migResult.appliedCount} new migrations.`);
-    } catch (migErr: any) {
-      console.warn('[PostgreSQL Warning] Startup migration check:', migErr?.message || migErr);
-      if (process.env.NODE_ENV === 'production') {
-        console.error('[PostgreSQL Critical] Migration verification failed in production mode.');
-      }
-    }
-  }
-
-  const PORT = process.env.APEX_TEST_PORT ? parseInt(process.env.APEX_TEST_PORT, 10) : 3000;
+export function registerAppMiddlewareAndRoutes(): void {
+  if (isAppConfigured) return;
+  isAppConfigured = true;
 
   app.use(express.json());
 
@@ -403,24 +432,15 @@ async function startServer() {
     res.setHeader('X-XSS-Protection', '1; mode=block');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
     res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    if (process.env.NODE_ENV === 'production' || req.secure || req.headers['x-forwarded-proto'] === 'https') {
+    const isHttps = req.headers['x-forwarded-proto'] === 'https' || Boolean(req.socket && (req.socket as any).encrypted);
+    if (process.env.NODE_ENV === 'production' || isHttps) {
       res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
     }
     next();
   });
 
-  // Token session map with creation timestamp & 24h expiration
-  const sessionMap = new Map<string, SessionData>();
+  // Ensure persisted sessions are synced into memory
   loadSessionsFromDisk(sessionMap);
-
-  // Failed login rate limiting map
-  const failedLoginMap = new Map<string, { attempts: number; lockedUntil: number }>();
-
-  // Password reset tokens
-  const passwordResetTokens = new Map<string, { userId: string; expiresAt: number }>();
-
-  // Email verification tokens
-  const emailVerifyTokens = new Map<string, { userId: string; expiresAt: number }>();
 
   // Register session revocation listener from SessionLifecycleManager to synchronize legacy sessionMap
   SessionLifecycleManager.addRevocationListener({
@@ -823,7 +843,7 @@ async function startServer() {
         details: selfReferralDetected
           ? 'Self-referral attempt blocked at registration (matching email/phone with referrer code holder).'
           : 'New user account created successfully.',
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         timestamp: new Date().toISOString()
       });
 
@@ -857,7 +877,7 @@ async function startServer() {
         userId: newUser.id,
         role: newUser.role,
         authMethod: 'PASSWORD',
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         userAgent: req.headers['user-agent'] as string
       }).catch(() => null);
 
@@ -925,7 +945,7 @@ async function startServer() {
           riskLevel: current.attempts >= 3 ? 'HIGH' : 'LOW',
           riskScoreContribution: 10,
           details: `Failed login attempt for identifier ${cleanIdentifier} (Attempt ${current.attempts}).`,
-          ipAddress: (req.ip || req.socket.remoteAddress) as string,
+          ipAddress: getClientIp(req),
           timestamp: new Date().toISOString()
         });
 
@@ -956,7 +976,7 @@ async function startServer() {
           riskLevel: current.attempts >= 3 ? 'HIGH' : 'LOW',
           riskScoreContribution: 10,
           details: `Failed password attempt for user ${user.name} (Attempt ${current.attempts}).`,
-          ipAddress: (req.ip || req.socket.remoteAddress) as string,
+          ipAddress: getClientIp(req),
           timestamp: new Date().toISOString()
         });
 
@@ -973,7 +993,7 @@ async function startServer() {
           riskLevel: 'HIGH',
           riskScoreContribution: 20,
           details: `Blocked login attempt for ${user.status ? user.status.toLowerCase() : 'restricted'} account ${user.email}.`,
-          ipAddress: (req.ip || req.socket.remoteAddress) as string,
+          ipAddress: getClientIp(req),
           timestamp: new Date().toISOString()
         });
         return res.status(403).json({ error: `Account access is ${user.status ? user.status.toLowerCase() : 'restricted'}. Authentication rejected.` });
@@ -990,7 +1010,7 @@ async function startServer() {
         riskLevel: 'LOW',
         riskScoreContribution: 0,
         details: `Successful login for user ${user.name}.`,
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         timestamp: new Date().toISOString()
       });
 
@@ -1013,7 +1033,7 @@ async function startServer() {
         userId: user.id,
         role: user.role,
         authMethod: 'PASSWORD',
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         userAgent: req.headers['user-agent'] as string
       }).catch(() => null);
 
@@ -1033,6 +1053,7 @@ async function startServer() {
       const { passwordHash: _, ...cleanUser } = user as any;
       res.json({ token, user: cleanUser });
     } catch (err: any) {
+      console.error('[Auth Login Error]:', err?.message || err);
       res.status(500).json({ error: 'Login failed' });
     }
   });
@@ -1062,7 +1083,7 @@ async function startServer() {
         return res.status(400).json({ error: 'Email, username, or phone is required' });
       }
 
-      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const clientIp = getClientIp(req);
       const rateLimitKey = `recovery_req_${clientIp}_${targetIdentifier.toLowerCase()}`;
       if (!checkRecoveryRateLimit(rateLimitKey, 5, 15 * 60 * 1000)) {
         return res.status(429).json({ error: 'Too many recovery requests. Please wait a few minutes before trying again.' });
@@ -1297,7 +1318,7 @@ async function startServer() {
         targetUserId: authUser.id,
         severity: 'WARNING',
         status: 'SUCCESS',
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         userAgent: req.headers['user-agent'] as string,
         details: { action: 'PASSWORD_CHANGE', cooldownHours: 24 }
       }).catch(() => {});
@@ -1370,7 +1391,7 @@ async function startServer() {
           targetUserId: undefined,
           severity: 'HIGH',
           status: 'BLOCKED',
-          ipAddress: (req.ip || req.socket.remoteAddress) as string,
+          ipAddress: getClientIp(req),
           userAgent: req.headers['user-agent'] as string,
           details: { attemptedSessionId: sessionId }
         }).catch(() => {});
@@ -1433,7 +1454,7 @@ async function startServer() {
       const result = await PasswordResetService.requestReset({
         identifier: String(identifier).trim(),
         channel: channel || 'EMAIL',
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         userAgent: req.headers['user-agent'] as string
       });
 
@@ -1454,7 +1475,7 @@ async function startServer() {
       const result = await PasswordResetService.completeReset({
         token: String(token).trim(),
         newPassword: String(newPassword),
-        ipAddress: (req.ip || req.socket.remoteAddress) as string,
+        ipAddress: getClientIp(req),
         userAgent: req.headers['user-agent'] as string
       });
 
@@ -1480,7 +1501,7 @@ async function startServer() {
         return res.status(400).json({ error: 'Identifier (email, username, or phone) is required' });
       }
 
-      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const clientIp = getClientIp(req);
       const rateLimitKey = `recovery_req_${clientIp}_${String(identifier).trim().toLowerCase()}`;
       if (!checkRecoveryRateLimit(rateLimitKey, 5, 15 * 60 * 1000)) {
         return res.status(429).json({ error: 'Too many recovery requests. Please wait a few minutes before trying again.' });
@@ -1547,7 +1568,7 @@ async function startServer() {
         return res.status(400).json({ error: 'Reset authorization token and new password are required' });
       }
 
-      const clientIp = (req.ip || req.socket.remoteAddress || '127.0.0.1') as string;
+      const clientIp = getClientIp(req);
       const result = await PasswordResetService.completePasswordResetWithAuth({
         resetAuthToken: String(resetAuthToken).trim(),
         newPassword: String(newPassword),
@@ -1603,7 +1624,7 @@ async function startServer() {
         telegramUserId: String(telegramUserId),
         telegramUsername: telegramUsername ? String(telegramUsername) : undefined,
         firstName: firstName ? String(firstName) : undefined,
-        ipAddress: (req.ip || req.socket.remoteAddress) as string
+        ipAddress: getClientIp(req)
       });
 
       if (!result.success) {
@@ -1626,7 +1647,7 @@ async function startServer() {
 
       const success = await TelegramIdentityService.unbindTelegram(
         authUser.id,
-        (req.ip || req.socket.remoteAddress) as string
+        getClientIp(req)
       );
 
       if (!success) {
@@ -10411,6 +10432,23 @@ function sanitizeCompForPlayer(comp: any, isAdmin: boolean) {
     }
     next(err);
   });
+}
+
+async function startServer() {
+  await ensureInitialized();
+
+  if (process.env.DATABASE_URL || process.env.NODE_ENV === 'production') {
+    try {
+      console.log('[PostgreSQL] Checking schema migrations on startup...');
+      const migResult = await DatabaseMigrator.runMigrations();
+      console.log(`[PostgreSQL] Applied ${migResult.appliedCount} new migrations.`);
+    } catch (migErr: any) {
+      console.warn('[PostgreSQL Warning] Startup migration check:', migErr?.message || migErr);
+      if (process.env.NODE_ENV === 'production') {
+        console.error('[PostgreSQL Critical] Migration verification failed in production mode.');
+      }
+    }
+  }
 
   // =========================================================================
   // VITE & STATIC ASSET MIDDLEWARE
@@ -10428,6 +10466,8 @@ function sanitizeCompForPlayer(comp: any, isAdmin: boolean) {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
+
+  const PORT = process.env.APEX_TEST_PORT ? parseInt(process.env.APEX_TEST_PORT, 10) : 3000;
 
   const server = app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);

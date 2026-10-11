@@ -26,6 +26,10 @@
   "include": [
     "src",
     "server.ts",
-    "api"
+    "api",
+    "app",
+    "lib",
+    "components",
+    "middleware.ts"
   ]
 }

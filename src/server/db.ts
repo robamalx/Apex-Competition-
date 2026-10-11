@@ -1405,10 +1405,8 @@ class JsonDB {
     }
   }
 
-  constructor() {
-    // In-memory blank structure so references before init() don't fail,
-    // with ZERO side-effects (no disk read, no directory creation, no quarantine, no disk write).
-    this.data = {
+  private buildBlankData(): DatabaseSchema {
+    return {
       users: [],
       competitions: [],
       fixtures: [],
@@ -1435,74 +1433,133 @@ class JsonDB {
     };
   }
 
+  constructor() {
+    // In-memory blank structure so references before init() don't fail,
+    // with ZERO side-effects (no disk read, no directory creation, no quarantine, no disk write).
+    this.data = this.buildBlankData();
+  }
+
   public isInitialized(): boolean {
     return this._initialized;
   }
 
   public init(): void {
     if (this._initialized) return;
-    this._initialized = true;
 
     const dataDir = getDataDir();
     const dbFile = getDbFile();
     const dbBackupFile = getDbBackupFile();
 
     if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
+      try {
+        fs.mkdirSync(dataDir, { recursive: true });
+      } catch (err: any) {
+        if (err?.code !== 'EROFS') {
+          throw err;
+        }
+        console.warn('[JsonDB] Read-only filesystem detected on data directory initialization.');
+      }
     }
 
-    if (fs.existsSync(dbFile)) {
-      try {
-        const raw = fs.readFileSync(dbFile, 'utf-8');
-        this.data = JSON.parse(raw);
+    const isValidDatabaseShape = (d: any): boolean => {
+      return Boolean(d && typeof d === 'object' && !Array.isArray(d) &&
+        Array.isArray(d.users) && Array.isArray(d.competitions) &&
+        Array.isArray(d.fixtures) && Array.isArray(d.transactions));
+    };
 
-        // Check if database already holds authentic provider fixtures
-        if (
-          Array.isArray(this.data.fixtures) &&
-          this.data.fixtures.length > 50 &&
-          this.data.fixtures.some(f => f.isAuthenticProviderFixture === true)
-        ) {
-          this._isBootstrapVerified = true;
-        }
+    const hasPrimary = fs.existsSync(dbFile);
+    const hasBackup = fs.existsSync(dbBackupFile);
 
-        // Defensive normalization: Ensure any fixtures with object team properties are safely flattened to strings
-        if (Array.isArray(this.data.fixtures)) {
-          for (const f of this.data.fixtures) {
-            if (typeof f.homeTeam === 'object' && f.homeTeam !== null) {
-              f.homeTeamName = (f.homeTeam as any).name || f.homeTeamName;
-              f.homeTeamCode = (f.homeTeam as any).code || f.homeTeamCode;
-              f.homeTeam = (f.homeTeam as any).name || 'Home';
-            }
-            if (typeof f.awayTeam === 'object' && f.awayTeam !== null) {
-              f.awayTeamName = (f.awayTeam as any).name || f.awayTeamName;
-              f.awayTeamCode = (f.awayTeam as any).code || f.awayTeamCode;
-              f.awayTeam = (f.awayTeam as any).name || 'Away';
-            }
-          }
-        }
+    try {
+      let loaded = false;
+      let primaryCorrupted = false;
 
-        // Update backup copy from valid primary database file
+      if (!hasPrimary && !hasBackup) {
+        this.data = buildInitialData();
+        loaded = true;
+      } else if (hasPrimary) {
+        let raw: string;
         try {
-          fs.copyFileSync(dbFile, dbBackupFile);
-        } catch (bakErr) {
-          // non-fatal backup copy
+          raw = fs.readFileSync(dbFile, 'utf-8');
+        } catch (readErr: any) {
+          throw new Error(`Fatal Database Error: Failed to read primary database file (${dbFile}): ${readErr?.message || readErr}`);
         }
-      } catch (err: any) {
-        console.error('[Database Error] Failed to parse primary database.json:', err?.message || err);
-        let recovered = false;
-        if (fs.existsSync(dbBackupFile)) {
-          try {
-            const rawBak = fs.readFileSync(dbBackupFile, 'utf-8');
-            this.data = JSON.parse(rawBak);
-            console.warn(`[Database Recovery] Successfully restored database from valid backup (${dbBackupFile}) after corruption in primary database.json.`);
-            recovered = true;
-            this.performAtomicSave();
-          } catch (bakErr: any) {
-            console.error('[Database Recovery] Backup file is also corrupted or unparseable:', bakErr?.message || bakErr);
+
+        try {
+          this.data = JSON.parse(raw);
+          if (!isValidDatabaseShape(this.data)) {
+            throw new Error('Primary database payload failed schema validation (missing required collection arrays).');
           }
+          loaded = true;
+          try {
+            fs.copyFileSync(dbFile, dbBackupFile);
+          } catch (bakErr) {
+            // non-fatal backup copy
+          }
+        } catch (parseErr: any) {
+          primaryCorrupted = true;
+          console.error('[Database Error] Primary database.json corrupted or invalid:', parseErr?.message || parseErr);
         }
-        if (!recovered) {
-          throw new Error('Fatal Database Error: Both primary database.json and backup database.json.bak are corrupted or unparseable. Refusing to overwrite with empty database.');
+      }
+
+      if (!loaded) {
+        if (hasBackup) {
+          let rawBak: string;
+          try {
+            rawBak = fs.readFileSync(dbBackupFile, 'utf-8');
+          } catch (readBakErr: any) {
+            throw new Error(`Fatal Database Error: Failed to read backup file (${dbBackupFile}): ${readBakErr?.message || readBakErr}`);
+          }
+
+          try {
+            this.data = JSON.parse(rawBak);
+            if (!isValidDatabaseShape(this.data)) {
+              throw new Error('Backup database payload failed schema validation.');
+            }
+          } catch (parseBakErr: any) {
+            console.error('[Database Recovery] Backup file corrupted or unparseable:', parseBakErr?.message || parseBakErr);
+            if (primaryCorrupted) {
+              throw new Error('Fatal Database Error: Both primary database.json and backup database.json.bak are corrupted or unparseable. Refusing to overwrite with empty database.');
+            } else {
+              throw new Error(`Fatal Database Error: Primary database.json is missing and backup database.json.bak is corrupted or unparseable: ${parseBakErr?.message || parseBakErr}`);
+            }
+          }
+
+          console.warn(`[Database Recovery] Successfully restored database from valid backup (${dbBackupFile}) after ${primaryCorrupted ? 'corruption in' : 'missing'} primary database.json.`);
+          loaded = true;
+
+          try {
+            this.performAtomicSave({ skipBackupCopy: true, skipFixtureGuard: true, throwOnError: true });
+          } catch (saveErr: any) {
+            throw new Error(`Fatal Database Error: Restored database in memory from backup, but failed to persist to ${dbFile}: ${saveErr?.message || saveErr}`);
+          }
+        } else {
+          throw new Error('Fatal Database Error: Primary database.json is corrupted and backup database.json.bak does not exist. Refusing to overwrite with empty database.');
+        }
+      }
+
+      // Check if database already holds authentic provider fixtures
+      if (
+        Array.isArray(this.data.fixtures) &&
+        this.data.fixtures.length > 50 &&
+        this.data.fixtures.some(f => f.isAuthenticProviderFixture === true)
+      ) {
+        this._isBootstrapVerified = true;
+      }
+
+      // Defensive normalization: Ensure any fixtures with object team properties are safely flattened to strings
+      if (Array.isArray(this.data.fixtures)) {
+        for (const f of this.data.fixtures) {
+          if (typeof f.homeTeam === 'object' && f.homeTeam !== null) {
+            f.homeTeamName = (f.homeTeam as any).name || f.homeTeamName;
+            f.homeTeamCode = (f.homeTeam as any).code || f.homeTeamCode;
+            f.homeTeam = (f.homeTeam as any).name || 'Home';
+          }
+          if (typeof f.awayTeam === 'object' && f.awayTeam !== null) {
+            f.awayTeamName = (f.awayTeam as any).name || f.awayTeamName;
+            f.awayTeamCode = (f.awayTeam as any).code || f.awayTeamCode;
+            f.awayTeam = (f.awayTeam as any).name || 'Away';
+          }
         }
       }
 
@@ -1668,10 +1725,20 @@ class JsonDB {
         // Reconcile wallet and ledger integrity on startup
         this.reconcileWalletLedgerIntegrity();
       }
-    } else {
-      this.data = buildInitialData();
-      this.migrateAdvertisingSystem();
-      this.performAtomicSave();
+
+      this.performAtomicSave({ throwOnError: true });
+      this._initialized = true;
+    } catch (initErr) {
+      this._initialized = false;
+      this._isBootstrapVerified = false;
+      if (this._saveTimeout) {
+        clearTimeout(this._saveTimeout);
+        this._saveTimeout = null;
+      }
+      this._isWriting = false;
+      this._pendingWrite = false;
+      this.data = this.buildBlankData();
+      throw initErr;
     }
   }
 
@@ -1683,40 +1750,52 @@ class JsonDB {
     this._autoSaveDisablesCount = Math.max(0, this._autoSaveDisablesCount - 1);
   }
 
-  private performAtomicSave(): void {
+  private performAtomicSave(options?: { skipBackupCopy?: boolean; skipFixtureGuard?: boolean; throwOnError?: boolean }): boolean {
     if (this._isSandboxed) {
-      return;
+      if (options?.throwOnError) throw new Error('performAtomicSave refused: sandbox mode is active.');
+      return false;
     }
     if (process.env.APEX_READONLY_DB === 'true' || process.env.APEX_DISABLE_DB_WRITE === 'true') {
-      return;
+      if (options?.throwOnError) throw new Error('performAtomicSave refused: database writes disabled.');
+      return false;
     }
     // Safeguard against standalone CLI/test processes attempting unbootstrapped live-database writes
     if (process.env.APEX_STANDALONE_CLI === 'true' && !this._isBootstrapVerified) {
       console.warn('[Database Guard] Refusing performAtomicSave: Standalone CLI process has not executed a verified bootstrap.');
-      return;
+      if (options?.throwOnError) throw new Error('performAtomicSave refused: unbootstrapped standalone CLI process.');
+      return false;
     }
     const dataDir = getDataDir();
     const dbFile = getDbFile();
 
     // Prevent unbootstrapped in-memory state from wiping out populated on-disk fixtures
-    if (fs.existsSync(dbFile)) {
+    if (fs.existsSync(dbFile) && !options?.skipFixtureGuard) {
+      let diskSize = 0;
+      let statFailed = false;
       try {
-        const inMemoryFixturesCount = Array.isArray(this.data.fixtures) ? this.data.fixtures.length : 0;
-        if (inMemoryFixturesCount === 0) {
-          const diskStat = fs.statSync(dbFile);
-          if (diskStat.size > 50000) {
-            console.warn(`[Database Guard] Refusing performAtomicSave: In-memory fixtures are empty while on-disk database is populated (${diskStat.size} bytes). Preventing destructive fixture catalog overwrite.`);
-            return;
-          }
-        }
+        diskSize = fs.statSync(dbFile).size;
       } catch (checkErr) {
-        // Non-blocking stat inspection
+        statFailed = true;
+      }
+      const inMemoryFixturesCount = Array.isArray(this.data?.fixtures) ? this.data.fixtures.length : 0;
+      if (inMemoryFixturesCount === 0) {
+        if (statFailed) {
+          console.warn('[Database Guard] Refusing performAtomicSave: Failed to stat existing dbFile while in-memory fixtures are empty.');
+          if (options?.throwOnError) throw new Error('performAtomicSave refused: unable to verify fixture catalog safety.');
+          return false;
+        }
+        if (diskSize > 50000) {
+          console.warn(`[Database Guard] Refusing performAtomicSave: In-memory fixtures are empty while on-disk database is populated (${diskSize} bytes). Preventing destructive fixture catalog overwrite.`);
+          if (options?.throwOnError) throw new Error('performAtomicSave refused: empty in-memory fixtures would overwrite populated catalog.');
+          return false;
+        }
       }
     }
 
     if (this._isWriting) {
+      if (options?.throwOnError) throw new Error('performAtomicSave refused: concurrent write already in progress.');
       this._pendingWrite = true;
-      return;
+      return false;
     }
     this._isWriting = true;
     const dbBackupFile = getDbBackupFile();
@@ -1726,25 +1805,42 @@ class JsonDB {
         fs.mkdirSync(dataDir, { recursive: true });
       }
       const serialized = JSON.stringify(this.data, null, 2);
-      const tmpFile = path.join(dataDir, `.database.json.tmp.${Date.now()}_${Math.random().toString(36).substring(2, 8)}`);
+      let tmpFile: string | null = path.join(dataDir, `.database.json.tmp.${Date.now()}_${Math.random().toString(36).substring(2, 8)}`);
+      let fd: number | null = null;
 
-      const fd = fs.openSync(tmpFile, 'w');
-      fs.writeSync(fd, serialized, 0, 'utf-8');
-      fs.fsyncSync(fd);
-      fs.closeSync(fd);
+      try {
+        fd = fs.openSync(tmpFile, 'w');
+        fs.writeSync(fd, serialized, 0, 'utf-8');
+        fs.fsyncSync(fd);
+        fs.closeSync(fd);
+        fd = null;
 
-      // Create/update backup of current database before replacing
-      if (fs.existsSync(dbFile)) {
-        try {
-          fs.copyFileSync(dbFile, dbBackupFile);
-        } catch (bakErr) {
-          // non-fatal
+        // Create/update backup of current database before replacing (skipped during recovery to protect valid backup)
+        if (fs.existsSync(dbFile) && !options?.skipBackupCopy) {
+          try {
+            fs.copyFileSync(dbFile, dbBackupFile);
+          } catch (bakErr) {
+            // non-fatal
+          }
+        }
+
+        fs.renameSync(tmpFile, dbFile);
+        tmpFile = null;
+        return true;
+      } finally {
+        if (fd !== null) {
+          try { fs.closeSync(fd); } catch {}
+        }
+        if (tmpFile && fs.existsSync(tmpFile)) {
+          try { fs.unlinkSync(tmpFile); } catch {}
         }
       }
-
-      fs.renameSync(tmpFile, dbFile);
     } catch (err) {
       console.error('Failed to write database atomically:', err);
+      if (options?.throwOnError) {
+        throw err;
+      }
+      return false;
     } finally {
       this._isWriting = false;
       if (this._pendingWrite) {
