@@ -1,7 +1,7 @@
+import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
-import '../src/index.css';
 
 export const metadata: Metadata = {
   title: 'Apex Arena App',
