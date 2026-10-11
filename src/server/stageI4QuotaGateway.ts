@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   StageI4GatewayDiagnostics,
   StageI4ControlledSyncRequest,
@@ -12,7 +12,7 @@ import {
   ProviderCircuitTripReason,
   ImportedFixture,
   CentralFixture
-} from '../types.js';
+} from '../types';
 
 // Top Leagues metadata
 const TOP_6_LEAGUES = [

@@ -6,7 +6,7 @@ import {
   FixtureClassification,
   StageF3ClassificationSummary,
   StageF3GroupedFixtures
-} from '../types.js';
+} from '../types';
 
 export const CHAMPIONS_LEAGUE_ID = 2;
 

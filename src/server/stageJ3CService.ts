@@ -12,7 +12,7 @@
  * - Idempotent, Tamper-Proof Settlement & Financial Isolation
  */
 
-import { db } from './db.js';
+import { db } from './db';
 import {
   StageJ3CTestResult,
   StageJ3CTestSuiteResponse,
@@ -20,7 +20,7 @@ import {
   Competition,
   User,
   Match
-} from '../types.js';
+} from '../types';
 
 export class StageJ3CService {
   /**

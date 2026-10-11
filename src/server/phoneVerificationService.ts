@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   AccountLifecycleStatus,
@@ -15,8 +15,8 @@ import {
   PhoneVerificationProviderHealth,
   Risk4TestItem,
   Risk4AcceptanceReport
-} from '../types.js';
-import { DistributedLockManager } from './scalingPerformanceService.js';
+} from '../types';
+import { DistributedLockManager } from './scalingPerformanceService';
 
 // =========================================================================
 // 1. PHONE NORMALIZATION & VALIDATION MODULE (E.164 ETHIOPIAN CANONICAL)

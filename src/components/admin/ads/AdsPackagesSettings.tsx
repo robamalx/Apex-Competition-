@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import {
   AdPackageConfig
-} from '../../../types.js';
+} from '../../../types';
 
 interface AdsPackagesSettingsProps {
   packages: AdPackageConfig[];

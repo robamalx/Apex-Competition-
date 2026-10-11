@@ -22,8 +22,8 @@ import {
   Match,
   PredictionEntry,
   CompetitionSettlement
-} from '../types.js';
-import { db } from './db.js';
+} from '../types';
+import { db } from './db';
 
 // =============================================================================
 // 1. CANONICAL TEAM REGISTRY & ALIASES

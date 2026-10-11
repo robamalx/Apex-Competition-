@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { db } from './db.js';
-import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService.js';
+import { db } from './db';
+import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService';
 import { 
   CentralFixture, 
   Competition, 
@@ -8,7 +8,7 @@ import {
   StageF2TestResult, 
   StageF2TestSuiteResponse, 
   StageF2OperationalSummary 
-} from '../types.js';
+} from '../types';
 
 export async function getStageF2SummaryHandler(req: Request, res: Response, user: any) {
   if (!user || !['SUPER_ADMIN', 'COMPETITION_PUBLISHER', 'RISK_ANALYST', 'AUDITOR'].includes(user.role)) {

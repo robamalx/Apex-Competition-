@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { db, FIXED_MARKET_POINTS } from './db.js';
+import { db, FIXED_MARKET_POINTS } from './db';
 import {
   StageG1TestResult,
   StageG1TestSuiteResponse,
@@ -8,7 +8,7 @@ import {
   FixtureStatus,
   Match,
   PredictionEntry
-} from '../types.js';
+} from '../types';
 
 // =========================================================================
 // STAGE G1 TEST SUITE IMPLEMENTATION (50 COMPREHENSIVE TESTS)

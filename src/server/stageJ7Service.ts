@@ -1,10 +1,10 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   StageJ7TestResult,
   StageJ7TestSuiteResponse,
   User,
   Match
-} from '../types.js';
+} from '../types';
 import bcrypt from 'bcryptjs';
 
 export class StageJ7Service {

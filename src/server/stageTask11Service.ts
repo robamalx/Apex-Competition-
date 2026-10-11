@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   WalletTransaction,
@@ -7,8 +7,8 @@ import {
   PredictionEntry,
   OperationalSubsystemHealth,
   OperationalMetrics
-} from '../types.js';
-import { OperationalResilienceService } from './operationalResilienceService.js';
+} from '../types';
+import { OperationalResilienceService } from './operationalResilienceService';
 
 export interface TestResultItem {
   id: string;

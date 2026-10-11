@@ -1,4 +1,4 @@
-import { Match, Team, Market, CentralFixture, FixtureClassificationType, CompetitionCategory } from '../types.js';
+import { Match, Team, Market, CentralFixture, FixtureClassificationType, CompetitionCategory } from '../types';
 
 export interface League {
   id: string;

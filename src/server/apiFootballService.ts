@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   CentralFixture,
   OfficialMatchResult,
@@ -12,7 +12,7 @@ import {
   ApiFootballHealthCode,
   LeagueVerificationItem,
   StageF1VerificationReport
-} from '../types.js';
+} from '../types';
 
 export function formatToEAT(isoString?: string | null): string {
   if (!isoString) return 'N/A';

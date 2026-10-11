@@ -24,8 +24,8 @@ import {
   FixtureStatus,
   FixtureClassificationType,
   CompetitionCategory
-} from '../types.js';
-import { db } from './db.js';
+} from '../types';
+import { db } from './db';
 
 export function formatToEAT(isoDate: string): string {
   try {

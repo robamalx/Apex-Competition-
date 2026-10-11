@@ -4,8 +4,8 @@
  * Comprehensive 60-test operational acceptance & migration verification suite.
  */
 
-import { db } from './db.js';
-import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService.js';
+import { db } from './db';
+import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService';
 import {
   StageI3TestResult,
   StageI3TestSuiteResponse,
@@ -14,8 +14,8 @@ import {
   StageI3AuthoritativeSummary,
   User,
   ImportedFixture
-} from '../types.js';
-import { classifyFixtureMetadata, applyClassificationToCentralFixture } from './fixtureClassifier.js';
+} from '../types';
+import { classifyFixtureMetadata, applyClassificationToCentralFixture } from './fixtureClassifier';
 
 export async function runStageI3AcceptanceSuite(actor?: User): Promise<StageI3TestSuiteResponse> {
   const startTime = Date.now();

@@ -1,11 +1,11 @@
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import pg from 'pg';
-import { dbPool } from './db/pool.js';
-import { db } from './db.js';
-import { User, UserRole as Role } from '../types.js';
-import { PostgresWalletService } from './db/postgresService.js';
-import { PhoneNormalizationEngine } from './phoneVerificationService.js';
+import { dbPool } from './db/pool';
+import { db } from './db';
+import { User, UserRole as Role } from '../types';
+import { PostgresWalletService } from './db/postgresService';
+import { PhoneNormalizationEngine } from './phoneVerificationService';
 export { PhoneNormalizationEngine };
 
 // ============================================================================

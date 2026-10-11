@@ -22,8 +22,8 @@
 
 import crypto from 'crypto';
 import pg from 'pg';
-import { dbPool } from './db/pool.js';
-import { withTransaction } from './db/postgresService.js';
+import { dbPool } from './db/pool';
+import { withTransaction } from './db/postgresService';
 
 function hashStringToInteger(str: string): number {
   let hash = 0;

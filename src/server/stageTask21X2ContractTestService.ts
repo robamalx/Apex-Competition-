@@ -1,4 +1,4 @@
-import { db, validateMarketChoice, normalizeMarketChoice, evaluateMarketSelection } from './db.js';
+import { db, validateMarketChoice, normalizeMarketChoice, evaluateMarketSelection } from './db';
 
 export interface TestResult {
   testName: string;

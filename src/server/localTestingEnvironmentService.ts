@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   UserRole,
@@ -12,7 +12,7 @@ import {
   Market,
   PredictionSelection,
   FinancialIncident
-} from '../types.js';
+} from '../types';
 
 // Global Environment Flag
 export const ENVIRONMENT = process.env.ENVIRONMENT || (process.env.NODE_ENV === 'production' ? 'PRODUCTION' : 'LOCAL_TEST');

@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   UserRole,
@@ -13,7 +13,7 @@ import {
   RiskSeverity,
   Risk10TestItem,
   Risk10AcceptanceReport
-} from '../types.js';
+} from '../types';
 import { FraudRiskService } from './fraudRiskService.ts';
 import { PhoneVerificationService } from './phoneVerificationService.ts';
 

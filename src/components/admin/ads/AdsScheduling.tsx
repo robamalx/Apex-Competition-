@@ -16,8 +16,8 @@ import {
   AdPackageConfig,
   getPlacementDisplayName,
   AUTHORITATIVE_AD_SPACES
-} from '../../../types.js';
-import { PlacementDisplay } from './PlacementDisplay.js';
+} from '../../../types';
+import { PlacementDisplay } from './PlacementDisplay';
 
 interface AdsSchedulingProps {
   campaigns: Advertisement[];

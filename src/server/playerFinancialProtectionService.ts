@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   Competition,
@@ -15,7 +15,7 @@ import {
   PlayerStatusCenterItem,
   Risk9AcceptanceReport,
   Risk9TestItem
-} from '../types.js';
+} from '../types';
 
 // In-memory operation store & lock maps for concurrency testing
 const operationsStore: Map<string, DurableOperation> = new Map();

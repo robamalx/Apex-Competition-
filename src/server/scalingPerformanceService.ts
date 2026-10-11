@@ -12,7 +12,7 @@
  * 8. Zero-leakage financial invariant verification (0.00 ETB discrepancy)
  */
 
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   Competition,
@@ -24,7 +24,7 @@ import {
   ProductionCapacityPlan,
   Risk3TestItem,
   Risk3AcceptanceReport
-} from '../types.js';
+} from '../types';
 
 // =============================================================================
 // 1. MULTI-LEVEL CACHING SUBSYSTEM

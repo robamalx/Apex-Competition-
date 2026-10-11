@@ -1,12 +1,12 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   Task12TestItem,
   Task12AcceptanceReport,
   SubsystemHealthState,
   FinancialIncident
-} from '../types.js';
-import { ObservabilityService } from './observabilityService.js';
+} from '../types';
+import { ObservabilityService } from './observabilityService';
 
 export class StageTask12Service {
   public static async runAcceptanceSuite(): Promise<Task12AcceptanceReport> {

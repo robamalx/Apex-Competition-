@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   SubsystemName,
   SubsystemHealthState,
@@ -14,7 +14,7 @@ import {
   APMMetrics,
   User,
   FinancialIncident
-} from '../types.js';
+} from '../types';
 
 export class ObservabilityService {
   private static alertCooldownMs = 60000; // 1 minute deduplication window

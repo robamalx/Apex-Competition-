@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 import pg from 'pg';
-import { db } from './db.js';
-import { getPool, withTransaction, toMinorUnits, toETB, hashStringToInteger } from './db/postgresService.js';
-import { DatabaseMigrator } from './db/migrator.js';
+import { db } from './db';
+import { getPool, withTransaction, toMinorUnits, toETB, hashStringToInteger } from './db/postgresService';
+import { DatabaseMigrator } from './db/migrator';
 
 export interface DataClassification {
   category: 'FINANCIAL_CRITICAL' | 'COMPETITION_CRITICAL' | 'SECURITY_CRITICAL' | 'OPERATIONAL';

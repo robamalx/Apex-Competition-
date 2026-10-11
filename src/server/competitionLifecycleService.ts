@@ -16,15 +16,15 @@
 
 import crypto from 'crypto';
 import pg from 'pg';
-import { getPool, withTransaction, PostgresWalletService } from './db/postgresService.js';
-import { dbPool } from './db/pool.js';
-import { db } from './db.js';
+import { getPool, withTransaction, PostgresWalletService } from './db/postgresService';
+import { dbPool } from './db/pool';
+import { db } from './db';
 import {
   CompetitionStatus,
   CompetitionRulesSnapshot,
   UserRole,
   MarketType
-} from '../types.js';
+} from '../types';
 
 // =============================================================================
 // 1. STATE MACHINE TRANSITION MATRIX & DEFINITIONS

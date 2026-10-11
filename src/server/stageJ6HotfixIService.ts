@@ -1,4 +1,4 @@
-import { db, FIXED_MARKET_POINTS, evaluateMarketSelection } from './db.js';
+import { db, FIXED_MARKET_POINTS, evaluateMarketSelection } from './db';
 import {
   StageJ6HotfixITestResult,
   StageJ6HotfixITestSuiteResponse,
@@ -7,7 +7,7 @@ import {
   Match,
   PredictionEntry,
   FinalPredictionSubmission
-} from '../types.js';
+} from '../types';
 import bcrypt from 'bcryptjs';
 
 export class StageJ6HotfixIService {

@@ -1,5 +1,5 @@
-import { db, FIXED_MARKET_POINTS, evaluateMarketSelection } from './db.js';
-import { User, Match, FinalPredictionSubmission } from '../types.js';
+import { db, FIXED_MARKET_POINTS, evaluateMarketSelection } from './db';
+import { User, Match, FinalPredictionSubmission } from '../types';
 import bcrypt from 'bcryptjs';
 
 export interface ScoringSettlementTestResult {

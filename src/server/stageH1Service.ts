@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
-import { db, APPROVED_MARKETS, FIXED_MARKET_POINTS, SERVER_PRIZE_PERCENTAGES, evaluateMarketSelection, validateMarketChoice } from './db.js';
-import { apiFootballService } from './apiFootballService.js';
+import { db, APPROVED_MARKETS, FIXED_MARKET_POINTS, SERVER_PRIZE_PERCENTAGES, evaluateMarketSelection, validateMarketChoice } from './db';
+import { apiFootballService } from './apiFootballService';
 import {
   StageH1TestResult,
   StageH1TestSuiteResponse,
@@ -16,7 +16,7 @@ import {
   FinalPredictionSubmission,
   OfficialMatchResult,
   ImportedFixture
-} from '../types.js';
+} from '../types';
 
 // =========================================================================
 // STAGE H1: PLATFORM GAP AUDIT & PRODUCTION READINESS TEST SUITE (110 CHECKS)

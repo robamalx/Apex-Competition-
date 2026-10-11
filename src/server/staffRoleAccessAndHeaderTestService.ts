@@ -1,5 +1,5 @@
-import { db } from './db.js';
-import { User, Competition } from '../types.js';
+import { db } from './db';
+import { User, Competition } from '../types';
 
 export interface StaffAccessTestResult {
   id: string;

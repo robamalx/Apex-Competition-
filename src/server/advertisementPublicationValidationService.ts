@@ -16,9 +16,9 @@ import {
   AdPublishingAuditRecord,
   Risk7TestItem,
   Risk7AcceptanceReport
-} from '../types.js';
-import { db } from './db.js';
-import { DEFAULT_AD_PACKAGES, PLACEMENT_SPECS, sanitizeAdUrl, sanitizeAdText } from './advertisingService.js';
+} from '../types';
+import { db } from './db';
+import { DEFAULT_AD_PACKAGES, PLACEMENT_SPECS, sanitizeAdUrl, sanitizeAdText } from './advertisingService';
 
 // =============================================================================
 // DISTRIBUTED MUTEX LOCK FOR ADVERTISING CONCURRENCY SAFETY

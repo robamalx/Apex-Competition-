@@ -15,9 +15,9 @@
 
 import crypto from 'crypto';
 import pg from 'pg';
-import { dbPool } from './db/pool.js';
-import { withTransaction, acquirePgAdvisoryLock, PostgresWalletService, runAuthoritativeFinancialAudit } from './db/postgresService.js';
-import { APPROVED_PREDICTION_MARKETS } from './db.js';
+import { dbPool } from './db/pool';
+import { withTransaction, acquirePgAdvisoryLock, PostgresWalletService, runAuthoritativeFinancialAudit } from './db/postgresService';
+import { APPROVED_PREDICTION_MARKETS } from './db';
 
 // Polyfill BigInt JSON serialization
 (BigInt.prototype as any).toJSON = function () {

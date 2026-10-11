@@ -19,7 +19,7 @@
 
 import crypto from 'crypto';
 import pg from 'pg';
-import { getPool } from './pool.js';
+import { getPool } from './pool';
 export { getPool };
 
 // Polyfill BigInt JSON serialization

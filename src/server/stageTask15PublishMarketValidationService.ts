@@ -1,5 +1,5 @@
-import { db, FIXED_MARKET_POINTS, resolveCanonicalMarketType, generateMarketsForMatch, APPROVED_MARKETS } from './db.js';
-import { Competition, Match, MarketType, User } from '../types.js';
+import { db, FIXED_MARKET_POINTS, resolveCanonicalMarketType, generateMarketsForMatch, APPROVED_MARKETS } from './db';
+import { Competition, Match, MarketType, User } from '../types';
 import bcrypt from 'bcryptjs';
 
 export interface PublishMarketValidationTestResult {

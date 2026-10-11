@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import crypto from 'crypto';
 import {
   User,
@@ -17,7 +17,7 @@ import {
   CollusionSignal,
   AccountCluster,
   FraudRiskDashboardMetrics
-} from '../types.js';
+} from '../types';
 
 export class FraudRiskService {
   /**

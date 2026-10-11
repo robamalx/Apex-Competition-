@@ -1,5 +1,5 @@
-import { db } from './db.js';
-import { User, UserRole } from '../types.js';
+import { db } from './db';
+import { User, UserRole } from '../types';
 
 export type StaffPermission =
   // Payment Verifier

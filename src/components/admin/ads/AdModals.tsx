@@ -25,8 +25,8 @@ import {
   AdPackageId,
   getPlacementDisplayName,
   AUTHORITATIVE_AD_SPACES
-} from '../../../types.js';
-import { PlacementDisplay } from './PlacementDisplay.js';
+} from '../../../types';
+import { PlacementDisplay } from './PlacementDisplay';
 
 export const PLACEMENT_SPECS_INFO: Record<AdPlacement, { width: number; height: number; ratio: string; desc: string; maxKb: number }> = {
   HOMEPAGE_HERO: { width: 1200, height: 240, ratio: '5:1', desc: 'Homepage Hero Rotating Banner (Max 5 in rotation)', maxKb: 2048 },

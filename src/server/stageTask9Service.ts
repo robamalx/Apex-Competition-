@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   User,
   Competition,
@@ -13,7 +13,7 @@ import {
   FootballDataAuditLog,
   FootballResultStatus,
   PredictionEntry
-} from '../types.js';
+} from '../types';
 
 export interface Task9TestResult {
   id: string;

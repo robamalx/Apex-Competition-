@@ -23,7 +23,7 @@ import {
   PhoneVerificationProviderHealth,
   PhoneVerificationAuditRecord,
   AccountRecoveryRequest
-} from '../../types.js';
+} from '../../types';
 
 interface PhoneVerificationPanelProps {
   currentUser: User;

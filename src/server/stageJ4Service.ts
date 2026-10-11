@@ -1,11 +1,11 @@
-import { db } from './db.js';
+import { db } from './db';
 import {
   StageJ4TestResult,
   StageJ4TestSuiteResponse,
   User,
   Competition,
   WalletTransaction
-} from '../types.js';
+} from '../types';
 import bcrypt from 'bcryptjs';
 
 export class StageJ4Service {

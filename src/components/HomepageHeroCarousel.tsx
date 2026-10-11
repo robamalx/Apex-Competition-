@@ -10,7 +10,7 @@ import {
   Play,
   Trophy
 } from 'lucide-react';
-import { Advertisement } from '../types.js';
+import { Advertisement } from '../types';
 
 interface HomepageHeroCarouselProps {
   className?: string;

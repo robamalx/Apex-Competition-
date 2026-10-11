@@ -25,18 +25,18 @@ import {
   AdPlacement,
   AdPackageId,
   User
-} from '../../types.js';
+} from '../../types';
 
 // Modularized Subcomponents
-import { AdsDashboard } from './ads/AdsDashboard.js';
-import { AdsCampaigns } from './ads/AdsCampaigns.js';
-import { AdsCompanies } from './ads/AdsCompanies.js';
-import { AdsCreatives } from './ads/AdsCreatives.js';
-import { AdsApprovalQueue } from './ads/AdsApprovalQueue.js';
-import { AdsPayments } from './ads/AdsPayments.js';
-import { AdsAnalytics } from './ads/AdsAnalytics.js';
-import { AdsScheduling } from './ads/AdsScheduling.js';
-import { AdsPackagesSettings } from './ads/AdsPackagesSettings.js';
+import { AdsDashboard } from './ads/AdsDashboard';
+import { AdsCampaigns } from './ads/AdsCampaigns';
+import { AdsCompanies } from './ads/AdsCompanies';
+import { AdsCreatives } from './ads/AdsCreatives';
+import { AdsApprovalQueue } from './ads/AdsApprovalQueue';
+import { AdsPayments } from './ads/AdsPayments';
+import { AdsAnalytics } from './ads/AdsAnalytics';
+import { AdsScheduling } from './ads/AdsScheduling';
+import { AdsPackagesSettings } from './ads/AdsPackagesSettings';
 
 // Modals
 import {
@@ -44,7 +44,7 @@ import {
   AdCompanyModal,
   AdReviewModal,
   AdPaymentModal
-} from './ads/AdModals.js';
+} from './ads/AdModals';
 
 interface AdminAdsTabProps {
   currentUser: User;

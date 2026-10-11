@@ -17,9 +17,9 @@ import {
   Risk6AcceptanceReport,
   CanonicalFixture,
   FixtureStatus
-} from '../types.js';
-import { db, APPROVED_MARKETS, FIXED_MARKET_POINTS, resolveCanonicalMarketType, generateMarketsForMatch } from './db.js';
-import { CANONICAL_TEAMS } from './canonicalFootballDataService.js';
+} from '../types';
+import { db, APPROVED_MARKETS, FIXED_MARKET_POINTS, resolveCanonicalMarketType, generateMarketsForMatch } from './db';
+import { CANONICAL_TEAMS } from './canonicalFootballDataService';
 
 // =============================================================================
 // DISTRIBUTED IN-MEMORY LOCKING FOR CONCURRENCY SAFETY

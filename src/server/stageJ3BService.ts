@@ -10,7 +10,7 @@
  * - Exact user scenario verification (Login -> Open Fixtures -> Logout -> Login -> Refresh -> Restart -> Verify)
  */
 
-import { db } from './db.js';
+import { db } from './db';
 import {
   CentralFixture,
   StageJ3BTestResult,
@@ -18,7 +18,7 @@ import {
   StageJ3BTestCategory,
   User,
   Competition
-} from '../types.js';
+} from '../types';
 
 export class StageJ3BService {
   /**

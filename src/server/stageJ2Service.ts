@@ -29,7 +29,7 @@
  * 25 Performance & Zero External API Quota (0 Requests)
  */
 
-import { db } from './db.js';
+import { db } from './db';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import {
@@ -44,7 +44,7 @@ import {
   StageJ2TestCategory,
   SystemAlert,
   ScheduleChangeReview
-} from '../types.js';
+} from '../types';
 
 export class StageJ2Service {
   /**

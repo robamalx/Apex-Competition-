@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
-import { Advertisement, AdPlacement } from '../types.js';
-import { HomepageHeroCarousel } from './HomepageHeroCarousel.js';
+import { Advertisement, AdPlacement } from '../types';
+import { HomepageHeroCarousel } from './HomepageHeroCarousel';
 
 interface AdPlacementBannerProps {
   placement: AdPlacement;

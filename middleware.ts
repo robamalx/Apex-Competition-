@@ -1,5 +1,12 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
+if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = 'pk_test_Y2xlcmstY29tbXVuaXR5LmNsa2Rldi5uZXQk';
+}
+if (!process.env.CLERK_SECRET_KEY) {
+  process.env.CLERK_SECRET_KEY = 'sk_test_dummy_secret_key_for_development_environment_123456789';
+}
+
 // Define the routes you want to protect
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 

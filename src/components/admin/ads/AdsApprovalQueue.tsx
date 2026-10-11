@@ -20,8 +20,8 @@ import {
   AdPackageConfig,
   AdPayment,
   AUTHORITATIVE_AD_SPACES
-} from '../../../types.js';
-import { PlacementDisplay } from './PlacementDisplay.js';
+} from '../../../types';
+import { PlacementDisplay } from './PlacementDisplay';
 
 interface AdsApprovalQueueProps {
   campaigns: Advertisement[];

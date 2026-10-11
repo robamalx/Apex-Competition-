@@ -1,7 +1,7 @@
-import { db } from './db.js';
-import { User, WalletTransaction } from '../types.js';
-import { broadcastLiveEvent } from '../../server.js';
-import { PaymentDepositVerificationService } from './paymentDepositVerificationService.js';
+import { db } from './db';
+import { User, WalletTransaction } from '../types';
+import { broadcastLiveEvent } from '../../server';
+import { PaymentDepositVerificationService } from './paymentDepositVerificationService';
 
 export interface RealtimeWalletTestResult {
   id: string;

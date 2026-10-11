@@ -1,8 +1,8 @@
-import { db } from './db.js';
-import { StageJ3AService } from './stageJ3AService.js';
-import { StageJ3BService } from './stageJ3BService.js';
-import { StageJ3CService } from './stageJ3CService.js';
-import { Match, Competition } from '../types.js';
+import { db } from './db';
+import { StageJ3AService } from './stageJ3AService';
+import { StageJ3BService } from './stageJ3BService';
+import { StageJ3CService } from './stageJ3CService';
+import { Match, Competition } from '../types';
 
 export interface StageJ3DTestResult {
   id: string;

@@ -1,5 +1,5 @@
-import { db, APPROVED_MARKETS, APPROVED_PREDICTION_MARKETS, FIXED_MARKET_POINTS, validateMarketChoice, evaluateMarketSelection, resolveCanonicalMarketType } from './db.js';
-import { StageJ6HotfixTestResult, StageJ6HotfixTestSuiteResponse } from '../types.js';
+import { db, APPROVED_MARKETS, APPROVED_PREDICTION_MARKETS, FIXED_MARKET_POINTS, validateMarketChoice, evaluateMarketSelection, resolveCanonicalMarketType } from './db';
+import { StageJ6HotfixTestResult, StageJ6HotfixTestSuiteResponse } from '../types';
 
 export class StageJ6HotfixService {
   /**

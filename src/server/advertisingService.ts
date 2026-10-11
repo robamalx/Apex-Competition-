@@ -16,8 +16,8 @@ import {
   CreativeValidationResult,
   AuditLog,
   User
-} from '../types.js';
-import { db } from './db.js';
+} from '../types';
+import { db } from './db';
 
 // ============================================================================
 // 1. CONFIGURABLE ADVERTISING PACKAGES & PRICING
