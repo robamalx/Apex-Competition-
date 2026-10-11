@@ -25,7 +25,7 @@ import {
   Megaphone,
   HelpCircle
 } from 'lucide-react';
-import { useUser } from '@clerk/nextjs';
+import { useUser, SignInButton, SignUpButton } from '@clerk/nextjs';
 import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
@@ -498,18 +498,16 @@ export const Header: React.FC<HeaderProps> = ({
               ) : (
                 /* Unauthenticated Controls */
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <button
-                    onClick={() => openAuthModal('login')}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors"
-                  >
-                    Log In
-                  </button>
-                  <button
-                    onClick={() => openAuthModal('register')}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20"
-                  >
-                    Register
-                  </button>
+                  <SignInButton mode="modal">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors">
+                      Log In
+                    </button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <button className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20">
+                      Register
+                    </button>
+                  </SignUpButton>
                 </div>
               )}
 
@@ -609,24 +607,16 @@ export const Header: React.FC<HeaderProps> = ({
                 <div className="mb-4 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2.5">
                   <p className="text-xs text-slate-300 font-medium">Join football prediction competitions today!</p>
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        openAuthModal('login');
-                        setMobileDrawerOpen(false);
-                      }}
-                      className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700"
-                    >
-                      Log In
-                    </button>
-                    <button
-                      onClick={() => {
-                        openAuthModal('register');
-                        setMobileDrawerOpen(false);
-                      }}
-                      className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400"
-                    >
-                      Register
-                    </button>
+                    <SignInButton mode="modal">
+                      <button className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700">
+                        Log In
+                      </button>
+                    </SignInButton>
+                    <SignUpButton mode="modal">
+                      <button className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400">
+                        Register
+                      </button>
+                    </SignUpButton>
                   </div>
                 </div>
               )}
