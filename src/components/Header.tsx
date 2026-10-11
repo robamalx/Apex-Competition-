@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import {
   Trophy,
@@ -25,7 +27,7 @@ import {
   Megaphone,
   HelpCircle
 } from 'lucide-react';
-import { useUser, SignInButton, SignUpButton } from '@clerk/nextjs';
+import { useUser, useClerk } from '@clerk/nextjs';
 import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
@@ -126,6 +128,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const { user, logout, theme, toggleTheme, notifications, unreadCount, markNotificationAsRead } = useAuth();
   const { user: clerkUser } = useUser();
+  const { openSignIn, openSignUp } = useClerk();
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -498,16 +501,18 @@ export const Header: React.FC<HeaderProps> = ({
               ) : (
                 /* Unauthenticated Controls */
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <SignInButton mode="modal">
-                    <span role="button" className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer">
-                      Log In
-                    </span>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <span role="button" className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer">
-                      Register
-                    </span>
-                  </SignUpButton>
+                  <button
+                    onClick={() => openSignIn()}
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors"
+                  >
+                    Log In
+                  </button>
+                  <button
+                    onClick={() => openSignUp()}
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20"
+                  >
+                    Register
+                  </button>
                 </div>
               )}
 
@@ -607,16 +612,18 @@ export const Header: React.FC<HeaderProps> = ({
                 <div className="mb-4 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2.5">
                   <p className="text-xs text-slate-300 font-medium">Join football prediction competitions today!</p>
                   <div className="flex gap-2">
-                    <SignInButton mode="modal">
-                      <span role="button" className="flex-1 block py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700 text-center cursor-pointer">
-                        Log In
-                      </span>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
-                      <span role="button" className="flex-1 block py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400 text-center cursor-pointer">
-                        Register
-                      </span>
-                    </SignUpButton>
+                    <button
+                      onClick={() => openSignIn()}
+                      className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700 text-center"
+                    >
+                      Log In
+                    </button>
+                    <button
+                      onClick={() => openSignUp()}
+                      className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400 text-center"
+                    >
+                      Register
+                    </button>
                   </div>
                 </div>
               )}
