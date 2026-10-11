@@ -27,7 +27,6 @@ import {
 } from 'lucide-react';
 import { useUser } from '@clerk/nextjs';
 import { useAuth } from '../context/AuthContext';
-import { AdminMenu } from './AdminMenu';
 
 interface HeaderProps {
   activeTab: string;
@@ -133,8 +132,8 @@ export const Header: React.FC<HeaderProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   const clerkRole = clerkUser?.publicMetadata?.role as string | undefined;
-  const isAdmin = clerkUser?.publicMetadata?.role === 'admin' || clerkRole === 'ADMIN' || user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN';
-  const activeRole = clerkRole || user?.role;
+  const isAdmin = clerkUser?.publicMetadata?.role === 'admin' || (clerkRole && clerkRole.toLowerCase() === 'admin') || user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN';
+  const activeRole = (isAdmin ? 'ADMIN' : clerkRole) || user?.role;
   const isStaff = isAdmin || isStaffRole(activeRole);
   const roleNavItems = getNavigationForRole(activeRole);
 
@@ -190,7 +189,6 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Role-Specific Desktop Navigation Links */}
               <nav className="hidden lg:flex items-center gap-1 min-w-0">
-                {isAdmin && <AdminMenu onNavigate={navTo} />}
                 {isStaff ? (
                   /* Staff Navigation: Compact role-relevant items */
                   roleNavItems.map(item => {
@@ -647,11 +645,6 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Drawer Links List */}
               <div className="space-y-1 text-sm font-medium">
-                {isAdmin && (
-                  <div className="mb-2">
-                    <AdminMenu onNavigate={navTo} />
-                  </div>
-                )}
                 {isStaff ? (
                   /* Staff Role-Specific Navigation Links */
                   <>

@@ -47,6 +47,7 @@ function resolveClientMarketType(rawType?: string, rawId?: string, rawName?: str
 export const PredictionSlipProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, token, refreshUserData } = useAuth();
   const [activeCompetition, setActiveCompetition] = useState<Competition | null>(() => {
+    if (typeof window === 'undefined') return null;
     try {
       const saved = localStorage.getItem('apex_arena_slip_active_comp');
       return saved ? JSON.parse(saved) : null;
@@ -55,6 +56,7 @@ export const PredictionSlipProvider: React.FC<{ children: React.ReactNode }> = (
     }
   });
   const [selections, setSelections] = useState<PredictionSelection[]>(() => {
+    if (typeof window === 'undefined') return [];
     try {
       const saved = localStorage.getItem('apex_arena_slip_selections');
       return saved ? JSON.parse(saved) : [];
@@ -63,6 +65,7 @@ export const PredictionSlipProvider: React.FC<{ children: React.ReactNode }> = (
     }
   });
   const [isOpen, setIsOpen] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
     try {
       const saved = localStorage.getItem('apex_arena_slip_selections');
       return saved && JSON.parse(saved).length > 0;

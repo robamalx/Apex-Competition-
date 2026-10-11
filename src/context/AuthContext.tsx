@@ -20,10 +20,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('apex_token'));
+  const [token, setToken] = useState<string | null>(() =>
+    typeof window !== 'undefined' ? localStorage.getItem('apex_token') : null
+  );
   const [loading, setLoading] = useState<boolean>(true);
-  const [theme, setTheme] = useState<'dark' | 'light'>(
-    (localStorage.getItem('apex_theme') as 'dark' | 'light') || 'dark'
+  const [theme, setTheme] = useState<'dark' | 'light'>(() =>
+    typeof window !== 'undefined'
+      ? (localStorage.getItem('apex_theme') as 'dark' | 'light') || 'dark'
+      : 'dark'
   );
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
