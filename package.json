@@ -33,8 +33,7 @@
     "pg": "^8.23.0",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
-    "resend": "^6.32.1",
-    "vite": "^6.2.3"
+    "resend": "^6.32.1"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
@@ -49,8 +48,7 @@
     "pg-mem": "^3.0.14",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.3"
+    "typescript": "~5.8.2"
   },
   "overrides": {
     "@cloudflare/workers-types": "^5.20261104.1"
