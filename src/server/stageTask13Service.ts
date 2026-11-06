@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { db } from './db';
+import { db } from './db.js';
 import {
   User,
   WalletTransaction,
@@ -13,7 +13,7 @@ import {
   CompetitionSettlement,
   Task13TestItem,
   Task13AcceptanceReport
-} from '../types';
+} from '../types.js';
 
 export class StageTask13Service {
   static async runAcceptanceSuite(): Promise<Task13AcceptanceReport> {

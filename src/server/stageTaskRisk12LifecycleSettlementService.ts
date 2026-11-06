@@ -20,16 +20,16 @@ import {
   DEFAULT_PLAYER_POOL_BPS,
   DEFAULT_RANK_PAYOUT_PERCENTAGES,
   POSTPONED_VOID_THRESHOLD
-} from './competitionLifecycleService';
+} from './competitionLifecycleService.js';
 import {
   runAuthoritativeFinancialAudit,
   toMinorUnits,
   toETB,
   withTransaction,
   PostgresWalletService
-} from './db/postgresService';
-import { db } from './db';
-import { User, Competition, CentralFixture, UserRole } from '../types';
+} from './db/postgresService.js';
+import { db } from './db.js';
+import { User, Competition, CentralFixture, UserRole } from '../types.js';
 
 export interface Risk12TestCaseResult {
   caseNumber: number;

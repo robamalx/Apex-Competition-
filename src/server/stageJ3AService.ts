@@ -1,9 +1,9 @@
-import { db } from './db';
+import { db } from './db.js';
 import {
   DiscoveredMatchweek,
   StageJ3ATestResult,
   StageJ3ATestSuiteResponse
-} from '../types';
+} from '../types.js';
 
 export class StageJ3AService {
   public static async runAcceptanceSuite(): Promise<StageJ3ATestSuiteResponse> {

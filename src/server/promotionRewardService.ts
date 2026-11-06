@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import pg from 'pg';
-import { dbPool } from './db/pool';
-import { runAuthoritativeFinancialAudit } from './db/postgresService';
+import { dbPool } from './db/pool.js';
+import { runAuthoritativeFinancialAudit } from './db/postgresService.js';
 
 // =============================================================================
 // APEX ARENA — RISK 16: PROMOTION & BONUS ABUSE PROTECTION ENGINE

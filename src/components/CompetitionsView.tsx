@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Trophy,
@@ -20,7 +18,6 @@ import {
 } from 'lucide-react';
 import { Competition } from '../types';
 import { useAuth } from '../context/AuthContext';
-import { useClerk } from '@clerk/nextjs';
 import { TeamBadge } from './TeamBadge';
 
 interface CompetitionsViewProps {
@@ -37,7 +34,6 @@ export const CompetitionsView: React.FC<CompetitionsViewProps> = ({
   onOpenDeposit
 }) => {
   const { user, token } = useAuth();
-  const { openSignIn } = useClerk();
   const [competitions, setCompetitions] = useState<Competition[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -337,7 +333,7 @@ export const CompetitionsView: React.FC<CompetitionsViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             {selectedCategory === 'MY COMPETITIONS' && !user ? (
               <button
-                onClick={() => openSignIn()}
+                onClick={() => openAuthModal('login')}
                 className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-500/20"
               >
                 Log In to Account

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          const originalDefineProperty = Object.defineProperty;
+          Object.defineProperty = function(obj, prop, descriptor) {
+            if (obj === window && prop === 'ethereum') {
+              try {
+                if (descriptor) {
+                  descriptor.configurable = true;
+                }
+                return originalDefineProperty(obj, prop, descriptor);
+              } catch (e) {
+                console.warn('Prevented crash on redefining window.ethereum:', e);
+                return obj;
+              }
+            }
+            return originalDefineProperty(obj, prop, descriptor);
+          };
+        } catch (err) {
+          console.error('Error setting up ethereum override prevention:', err);
+        }
+      })();
+    </script>
+    <title>Apex Football Competitions 2</title>
+    <meta name="description" content="A fantasy and skill-based football competition platform with competition-first layout, real-time prediction slips, wallet management, leaderboards, and super admin control." />
+    <meta property="og:title" content="Apex Football Competitions 2" />
+    <meta property="og:description" content="A fantasy and skill-based football competition platform with competition-first layout, real-time prediction slips, wallet management, leaderboards, and super admin control." />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

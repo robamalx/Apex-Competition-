@@ -36,7 +36,6 @@ import {
   ApiFootballHealthStatus
 } from '../types';
 import { useAuth } from '../context/AuthContext';
-import { useUser } from '@clerk/nextjs';
 import { AdminPortalErrorBoundary } from './AdminPortalErrorBoundary';
 import { AdminDashboardTab } from './admin/AdminDashboardTab';
 import { AdminFixturesTab } from './admin/AdminFixturesTab';
@@ -89,11 +88,9 @@ export const ROLE_ALLOWED_TABS: Record<string, string[]> = {
 
 export const AdminPortal: React.FC = () => {
   const { user, token } = useAuth();
-  const { user: clerkUser } = useUser();
 
-  const clerkRole = (clerkUser?.publicMetadata?.role as string)?.toUpperCase();
-  const userRole = (clerkUser?.publicMetadata?.role === 'admin' ? 'ADMIN' : clerkRole) || user?.role || 'PLAYER';
-  const allowedTabs = useMemo(() => ROLE_ALLOWED_TABS[userRole] || ROLE_ALLOWED_TABS['ADMIN'] || [], [userRole]);
+  const userRole = user?.role || 'PLAYER';
+  const allowedTabs = useMemo(() => ROLE_ALLOWED_TABS[userRole] || [], [userRole]);
 
   // Primary Navigation State (Defaults to first allowed tab for the user's role)
   const [activeTab, setActiveTab] = useState<string>(() => allowedTabs[0] || 'dashboard');

@@ -7,14 +7,14 @@ import {
   SERVER_PRIZE_PERCENTAGES,
   evaluateMarketSelection,
   validateMarketChoice
-} from './db';
-import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService';
+} from './db.js';
+import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService.js';
 import {
   classifyFixtureMetadata,
   CHAMPIONS_LEAGUE_ID,
   DOMESTIC_LEAGUE_IDS,
   SUPPORTED_LEAGUE_NAMES
-} from './fixtureClassifier';
+} from './fixtureClassifier.js';
 import {
   StageI2TestResult,
   StageI2TestSuiteResponse,
@@ -30,7 +30,7 @@ import {
   MarketType,
   User,
   PredictionDraft
-} from '../types';
+} from '../types.js';
 
 export async function runStageI2AcceptanceSuite(adminUser?: any): Promise<StageI2TestSuiteResponse> {
   const tests: StageI2TestResult[] = [];

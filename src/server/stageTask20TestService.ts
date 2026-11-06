@@ -3,7 +3,7 @@ import {
   FIXED_MARKET_POINTS,
   compareLeaderboardEntries,
   areLeaderboardEntriesTied
-} from './db';
+} from './db.js';
 import {
   Competition,
   CompetitionLeaderboardEntry,
@@ -12,7 +12,7 @@ import {
   User,
   WalletTransaction,
   MarketType
-} from '../types';
+} from '../types.js';
 
 export interface Task20TieBreakingTestResult {
   id: string;

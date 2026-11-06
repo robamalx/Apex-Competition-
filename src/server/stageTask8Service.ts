@@ -1,4 +1,4 @@
-import { db } from './db';
+import { db } from './db.js';
 import {
   User,
   Competition,
@@ -8,7 +8,7 @@ import {
   FinancialSafetyState,
   FinancialSafetyControls,
   MarketType
-} from '../types';
+} from '../types.js';
 
 export interface Task8TestResult {
   id: string;

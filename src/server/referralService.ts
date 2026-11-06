@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { db } from './db';
+import { db } from './db.js';
 import {
   User,
   Competition,
@@ -14,9 +14,9 @@ import {
   ReferralPlayerOverview,
   Risk5TestItem,
   Risk5AcceptanceReport
-} from '../types';
-import { DistributedLockManager } from './scalingPerformanceService';
-import { PhoneNormalizationEngine } from './phoneVerificationService';
+} from '../types.js';
+import { DistributedLockManager } from './scalingPerformanceService.js';
+import { PhoneNormalizationEngine } from './phoneVerificationService.js';
 
 // =============================================================================
 // APEX ARENA — RISK 5: REFERRAL POINTS, ELIGIBILITY & ABUSE PREVENTION ENGINE

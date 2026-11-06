@@ -13,7 +13,7 @@ import {
   MessageSquare,
   HelpCircle
 } from 'lucide-react';
-import { User, VerificationChannelType } from '../types';
+import { User, VerificationChannelType } from '../types.js';
 
 interface PhoneVerificationModalProps {
   isOpen: boolean;

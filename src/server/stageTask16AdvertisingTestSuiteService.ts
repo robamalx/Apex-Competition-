@@ -1,6 +1,6 @@
-import { AdvertisingService, DEFAULT_AD_PACKAGES, validateCreativeBanner, PLACEMENT_SPECS } from './advertisingService';
-import { db } from './db';
-import { User, AdPlacement, AdPackageId, Advertisement, getPlacementDisplayName } from '../types';
+import { AdvertisingService, DEFAULT_AD_PACKAGES, validateCreativeBanner, PLACEMENT_SPECS } from './advertisingService.js';
+import { db } from './db.js';
+import { User, AdPlacement, AdPackageId, Advertisement, getPlacementDisplayName } from '../types.js';
 
 export interface TestResultItem {
   id: string;

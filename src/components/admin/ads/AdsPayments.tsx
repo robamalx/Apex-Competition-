@@ -17,7 +17,7 @@ import {
   AdPayment,
   Advertisement,
   AdCompany
-} from '../../../types';
+} from '../../../types.js';
 
 interface AdsPaymentsProps {
   payments: AdPayment[];

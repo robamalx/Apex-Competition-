@@ -734,6 +734,32 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               {loading ? 'Authenticating...' : 'LOG IN TO APEX ARENA'}
               {!loading && <ArrowRight className="w-4 h-4" />}
             </button>
+
+            <div className="pt-2 border-t border-slate-800 space-y-1.5">
+              <p className="text-[11px] font-semibold text-slate-400">Demo / Admin Quick Sign-In:</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIdentifier('superadmin');
+                    setLoginPassword('Roba1234');
+                  }}
+                  className="px-2.5 py-1.5 text-[11px] font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 hover:border-amber-500/50 transition-all text-left truncate"
+                >
+                  👑 Super Admin
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIdentifier('publisher');
+                    setLoginPassword('publisher123');
+                  }}
+                  className="px-2.5 py-1.5 text-[11px] font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 hover:border-sky-500/50 transition-all text-left truncate"
+                >
+                  🏆 Publisher
+                </button>
+              </div>
+            </div>
           </form>
         ) : mode === 'register' ? (
           /* REGISTRATION FORM */

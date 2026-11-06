@@ -7,8 +7,8 @@
 
 import pg from 'pg';
 import crypto from 'crypto';
-import { dbPool } from './db/pool';
-import { withTransaction } from './db/postgresService';
+import { dbPool } from './db/pool.js';
+import { withTransaction } from './db/postgresService.js';
 
 export type NotificationCriticality = 'CRITICAL' | 'IMPORTANT' | 'NORMAL' | 'OPTIONAL';
 export type NotificationChannel = 'IN_APP' | 'PUSH' | 'SMS' | 'EMAIL' | 'TELEGRAM';

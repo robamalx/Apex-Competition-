@@ -6,9 +6,18 @@ export default async function handler(req: any, res: any) {
 
     // Handle Vercel URL rewrite normalization:
     // If Vercel rewrote req.url or stripped the /api prefix, reconstruct the canonical API route
-    const forwardedUri = req.headers?.['x-forwarded-uri'] || req.headers?.['x-matched-path'];
-    if ((!req.url || req.url === '/' || req.url === '/api') && typeof forwardedUri === 'string' && forwardedUri.startsWith('/api')) {
+    const forwardedUri = req.headers?.['x-forwarded-uri'] || 
+                         req.headers?.['x-matched-path'] || 
+                         req.headers?.['x-real-origin-url'] ||
+                         (typeof req.originalUrl === 'string' && req.originalUrl.startsWith('/api') ? req.originalUrl : null);
+
+    if (forwardedUri && typeof forwardedUri === 'string' && forwardedUri.startsWith('/api')) {
       req.url = forwardedUri;
+    } else if (typeof req.headers?.['x-now-route-matches'] === 'string') {
+      const match = req.headers['x-now-route-matches'].match(/1=([^&]+)/);
+      if (match && match[1]) {
+        req.url = '/api/' + decodeURIComponent(match[1]);
+      }
     } else if (req.url && !req.url.startsWith('/api')) {
       req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
     }

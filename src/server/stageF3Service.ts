@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { db } from './db';
-import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService';
+import { db } from './db.js';
+import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService.js';
 import {
   CentralFixture,
   ImportedFixture,
@@ -9,13 +9,13 @@ import {
   StageF3ClassificationSummary,
   StageF3GroupedFixtures,
   Competition
-} from '../types';
+} from '../types.js';
 import {
   classifyFixtureMetadata,
   applyClassificationToCentralFixture,
   groupFixturesByClassification,
   generateClassificationSummary
-} from './fixtureClassifier';
+} from './fixtureClassifier.js';
 
 // =========================================================================
 // STAGE F3 OPERATIONAL API HANDLERS

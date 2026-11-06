@@ -1,11 +1,11 @@
-import { db } from './db';
+import { db } from './db.js';
 import {
   User,
   Match,
   Competition,
   PredictionEntry,
   FixtureMovementRecord
-} from '../types';
+} from '../types.js';
 
 export interface PostponedMatchTestItem {
   caseNumber: number;

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import pg from 'pg';
-import { dbPool } from './pool';
+import { dbPool } from './pool.js';
 
 export interface MigrationRecord {
   version: string;

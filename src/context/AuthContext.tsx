@@ -20,14 +20,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(() =>
-    typeof window !== 'undefined' ? localStorage.getItem('apex_token') : null
-  );
+  const [token, setToken] = useState<string | null>(localStorage.getItem('apex_token'));
   const [loading, setLoading] = useState<boolean>(true);
-  const [theme, setTheme] = useState<'dark' | 'light'>(() =>
-    typeof window !== 'undefined'
-      ? (localStorage.getItem('apex_theme') as 'dark' | 'light') || 'dark'
-      : 'dark'
+  const [theme, setTheme] = useState<'dark' | 'light'>(
+    (localStorage.getItem('apex_theme') as 'dark' | 'light') || 'dark'
   );
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
@@ -47,13 +43,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchCurrentUser = async (authToken: string) => {
     try {
       const res = await fetch('/api/auth/me', {
-        headers: { Authorization: `Bearer ${authToken}` }
+        headers: { 
+          'Authorization': `Bearer ${authToken}`,
+          'Accept': 'application/json'
+        }
       });
       if (res.ok) {
-        const data = await res.json();
-        setUser(data.user);
-        fetchNotifications(authToken);
-      } else {
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const data = await res.json();
+          setUser(data.user);
+          fetchNotifications(authToken);
+        }
+      } else if (res.status === 401 || res.status === 403) {
         localStorage.removeItem('apex_token');
         setToken(null);
         setUser(null);
@@ -68,12 +70,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchNotifications = async (authToken: string) => {
     try {
       const res = await fetch('/api/notifications', {
-        headers: { Authorization: `Bearer ${authToken}` }
+        headers: { 
+          'Authorization': `Bearer ${authToken}`,
+          'Accept': 'application/json'
+        }
       });
       if (res.ok) {
-        const data = await res.json();
-        const list = Array.isArray(data) ? data : (data.notifications || []);
-        setNotifications(list.map((n: any) => ({ ...n, read: n.read ?? !!n.read_at })));
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const data = await res.json();
+          const list = Array.isArray(data) ? data : (data.notifications || []);
+          setNotifications(list.map((n: any) => ({ ...n, read: n.read ?? !!n.read_at })));
+        }
       }
     } catch (err) {
       // Silently handle fetch errors for notifications
@@ -157,12 +165,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchCurrentUserSilently = async (authToken: string) => {
     try {
       const res = await fetch('/api/auth/me', {
-        headers: { Authorization: `Bearer ${authToken}` }
+        headers: { 
+          'Authorization': `Bearer ${authToken}`,
+          'Accept': 'application/json'
+        }
       });
       if (res.ok) {
-        const data = await res.json();
-        setUser(data.user);
-        fetchNotifications(authToken);
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const data = await res.json();
+          setUser(data.user);
+          fetchNotifications(authToken);
+        }
       }
     } catch (err) {
       // Silent error during background poll
@@ -173,14 +187,41 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({ identifier, password })
       });
       const contentType = res.headers.get('content-type') || '';
       if (!contentType.includes('application/json')) {
-        const text = await res.text().catch(() => '');
-        console.error(`[Auth] Non-JSON login response received (${res.status}):`, text.substring(0, 150));
-        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+        // If reverse-proxy returned warmup HTML (200 OK), wait 1.2s and retry once seamlessly
+        console.warn(`[Auth] Transient non-JSON login response (${res.status}), retrying after warmup delay...`);
+        await new Promise(r => setTimeout(r, 1200));
+        const retryRes = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ identifier, password })
+        });
+        const retryType = retryRes.headers.get('content-type') || '';
+        if (retryType.includes('application/json')) {
+          const retryData = await retryRes.json();
+          if (!retryRes.ok) {
+            return { success: false, error: retryData?.error || 'Login failed' };
+          }
+          localStorage.setItem('apex_token', retryData.token);
+          setToken(retryData.token);
+          setUser(retryData.user);
+          fetchNotifications(retryData.token);
+          return { success: true };
+        }
+        return { 
+          success: false, 
+          error: 'Authentication service is warming up. Please try again.' 
+        };
       }
       let data: any;
       try {
@@ -207,14 +248,40 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const res = await fetch('/api/auth/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify(formData)
       });
       const contentType = res.headers.get('content-type') || '';
       if (!contentType.includes('application/json')) {
-        const text = await res.text().catch(() => '');
-        console.error(`[Auth] Non-JSON register response received (${res.status}):`, text.substring(0, 150));
-        return { success: false, error: 'Unable to connect to the authentication service. Please try again.' };
+        console.warn(`[Auth] Transient non-JSON register response (${res.status}), retrying after warmup delay...`);
+        await new Promise(r => setTimeout(r, 1200));
+        const retryRes = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+        const retryType = retryRes.headers.get('content-type') || '';
+        if (retryType.includes('application/json')) {
+          const retryData = await retryRes.json();
+          if (!retryRes.ok) {
+            return { success: false, error: retryData?.error || 'Registration failed' };
+          }
+          localStorage.setItem('apex_token', retryData.token);
+          setToken(retryData.token);
+          setUser(retryData.user);
+          fetchNotifications(retryData.token);
+          return { success: true };
+        }
+        return { 
+          success: false, 
+          error: 'Authentication service is warming up. Please try again.' 
+        };
       }
       let data: any;
       try {
@@ -241,7 +308,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (token) {
       fetch('/api/auth/logout', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { 
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
       }).catch(() => {});
     }
     localStorage.removeItem('apex_token');

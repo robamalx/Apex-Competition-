@@ -15,7 +15,7 @@
  * - 28-Test comprehensive operational acceptance suite
  */
 
-import { db, isProductionFixture, isAuthenticProviderFixture, resolveCanonicalMarketType, APPROVED_MARKETS } from './db';
+import { db, isProductionFixture, isAuthenticProviderFixture, resolveCanonicalMarketType, APPROVED_MARKETS } from './db.js';
 import {
   CentralFixture,
   Competition,
@@ -28,7 +28,7 @@ import {
   StageJ1TestSuiteResponse,
   StageJ1TestCategory,
   MatchdaySummary
-} from '../types';
+} from '../types.js';
 
 export interface CompetitionWizardInput {
   title: string;

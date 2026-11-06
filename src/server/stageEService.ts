@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { db } from './db';
-import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService';
-import { CentralFixture, ImportedFixture } from '../types';
+import { db } from './db.js';
+import { apiFootballService, TOP_5_LEAGUES } from './apiFootballService.js';
+import { CentralFixture, ImportedFixture } from '../types.js';
 
 interface TestResult {
   id: string;

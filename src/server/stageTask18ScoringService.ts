@@ -9,8 +9,8 @@ import {
   compareLeaderboardEntries,
   areLeaderboardEntriesTied,
   resolveCanonicalMarketType
-} from './db';
-import { MarketType, User, Competition, FinalPredictionSubmission, CompetitionLeaderboardEntry, CentralFixture } from '../types';
+} from './db.js';
+import { MarketType, User, Competition, FinalPredictionSubmission, CompetitionLeaderboardEntry, CentralFixture } from '../types.js';
 
 export interface Task18ScoringTestResult {
   id: string;

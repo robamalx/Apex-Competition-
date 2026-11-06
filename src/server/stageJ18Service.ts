@@ -1,5 +1,5 @@
-import { db } from './db';
-import { footballDataService } from './footballDataService';
+import { db } from './db.js';
+import { footballDataService } from './footballDataService.js';
 
 export class StageJ18Service {
   static async runAcceptanceSuite() {

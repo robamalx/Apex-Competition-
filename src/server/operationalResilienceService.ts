@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { db } from './db';
+import { db } from './db.js';
 import {
   SubsystemName,
   SubsystemHealthStatus,
@@ -12,7 +12,7 @@ import {
   User,
   Competition,
   PredictionEntry
-} from '../types';
+} from '../types.js';
 
 export class OperationalResilienceService {
   private static locks: Map<string, { lockedBy: string; acquiredAt: number }> = new Map();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldAlert, Send, CheckCircle, AlertCircle, X, HelpCircle, FileText } from 'lucide-react';
-import { User } from '../types';
+import { User } from '../types.js';
 
 interface AccountRecoveryModalProps {
   isOpen: boolean;

@@ -9,7 +9,7 @@ import {
   compareLeaderboardEntries,
   areLeaderboardEntriesTied,
   resolveCanonicalMarketType
-} from './db';
+} from './db.js';
 import {
   MarketType,
   User,
@@ -21,8 +21,8 @@ import {
   PredictionEntry,
   CorrectScoreConfig,
   CompetitionStatus
-} from '../types';
-import { AdvertisingService } from './advertisingService';
+} from '../types.js';
+import { AdvertisingService } from './advertisingService.js';
 
 export interface Task19SmokeTestResult {
   id: string;

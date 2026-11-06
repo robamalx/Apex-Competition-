@@ -112,7 +112,7 @@ import {
   TeamMappingReviewRecord,
   FixtureMappingReviewRecord,
   ProviderSyncTelemetryEntry
-} from '../types';
+} from '../types.js';
 import {
   applyClassificationToCentralFixture,
   classifyFixtureMetadata,
@@ -120,8 +120,8 @@ import {
   generateClassificationSummary,
   getFixtureKickoffMs,
   resolveFixtureKickoff
-} from './fixtureClassifier';
-import { OFFICIAL_TEAMS, getFixturePool, getInitialCentralFixtures } from './fixtures';
+} from './fixtureClassifier.js';
+import { OFFICIAL_TEAMS, getFixturePool, getInitialCentralFixtures } from './fixtures.js';
 
 export { resolveFixtureKickoff };
 

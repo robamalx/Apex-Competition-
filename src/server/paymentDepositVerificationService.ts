@@ -15,8 +15,8 @@
 
 import crypto from 'crypto';
 import pg from 'pg';
-import { getPool, withTransaction } from './db/postgresService';
-import { db } from './db';
+import { getPool, withTransaction } from './db/postgresService.js';
+import { db } from './db.js';
 
 // =============================================================================
 // 1. TYPES & ENUMS

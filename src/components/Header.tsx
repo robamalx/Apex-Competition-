@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import {
   Trophy,
@@ -27,7 +25,6 @@ import {
   Megaphone,
   HelpCircle
 } from 'lucide-react';
-import { useUser, useClerk } from '@clerk/nextjs';
 import { useAuth } from '../context/AuthContext';
 
 interface HeaderProps {
@@ -127,18 +124,13 @@ export const Header: React.FC<HeaderProps> = ({
   onSearchChange
 }) => {
   const { user, logout, theme, toggleTheme, notifications, unreadCount, markNotificationAsRead } = useAuth();
-  const { user: clerkUser } = useUser();
-  const { openSignIn, openSignUp } = useClerk();
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const clerkRole = clerkUser?.publicMetadata?.role as string | undefined;
-  const isAdmin = clerkUser?.publicMetadata?.role === 'admin' || (clerkRole && clerkRole.toLowerCase() === 'admin') || user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN';
-  const activeRole = (isAdmin ? 'ADMIN' : clerkRole) || user?.role;
-  const isStaff = isAdmin || isStaffRole(activeRole);
-  const roleNavItems = getNavigationForRole(activeRole);
+  const isStaff = isStaffRole(user?.role);
+  const roleNavItems = getNavigationForRole(user?.role);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -502,13 +494,13 @@ export const Header: React.FC<HeaderProps> = ({
                 /* Unauthenticated Controls */
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <button
-                    onClick={() => openSignIn()}
+                    onClick={() => openAuthModal('login')}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors"
                   >
                     Log In
                   </button>
                   <button
-                    onClick={() => openSignUp()}
+                    onClick={() => openAuthModal('register')}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20"
                   >
                     Register
@@ -613,14 +605,20 @@ export const Header: React.FC<HeaderProps> = ({
                   <p className="text-xs text-slate-300 font-medium">Join football prediction competitions today!</p>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => openSignIn()}
-                      className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700 text-center"
+                      onClick={() => {
+                        openAuthModal('login');
+                        setMobileDrawerOpen(false);
+                      }}
+                      className="flex-1 py-2 rounded-lg bg-slate-800 text-xs font-bold text-white hover:bg-slate-700"
                     >
                       Log In
                     </button>
                     <button
-                      onClick={() => openSignUp()}
-                      className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400 text-center"
+                      onClick={() => {
+                        openAuthModal('register');
+                        setMobileDrawerOpen(false);
+                      }}
+                      className="flex-1 py-2 rounded-lg bg-emerald-500 text-xs font-bold text-slate-950 hover:bg-emerald-400"
                     >
                       Register
                     </button>

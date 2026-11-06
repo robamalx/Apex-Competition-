@@ -24,9 +24,9 @@ import {
   AdPackageConfig,
   AdPayment,
   AdPlacement
-} from '../../../types';
-import { PlacementDisplay } from './PlacementDisplay';
-import { AdSpacesOverview } from './AdSpacesOverview';
+} from '../../../types.js';
+import { PlacementDisplay } from './PlacementDisplay.js';
+import { AdSpacesOverview } from './AdSpacesOverview.js';
 
 interface AdsDashboardProps {
   campaigns: Advertisement[];

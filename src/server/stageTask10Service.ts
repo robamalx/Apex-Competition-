@@ -1,5 +1,5 @@
-import { db } from './db';
-import { FraudRiskService } from './fraudRiskService';
+import { db } from './db.js';
+import { FraudRiskService } from './fraudRiskService.js';
 import {
   User,
   WalletTransaction,
@@ -10,7 +10,7 @@ import {
   SuspiciousActivityIncident,
   WithdrawalReviewRecord,
   FraudAuditLog
-} from '../types';
+} from '../types.js';
 
 export interface Task10TestResult {
   id: string;
